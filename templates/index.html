@@ -13,9 +13,9 @@
 
 <body onload="loadDashboard();">
     
-<div class="jumbo text-top-left">
-    <h2> Stormtroopers </h2>
-</div>
+    <nav class="navbar navbar-dark bg-dark" style="height:70px;">
+        <span class="navbar-brand mb-0 h1">Stormtroopers</span>
+      </nav>
 
 <div class="container-fluid">
     <div class="row">
@@ -34,13 +34,13 @@
                         <button type="button" class="btn btn-light" onclick="Windowopen()" >Rule 1</button>
                     </li>
                     <li class="nav-item">
-                        <button type="button" class="btn btn-light">Rule 2</button>
+                        <button type="button" class="btn btn-light" onclick="Windowopen() ">Rule 2</button>
                     </li>
                     <li class="nav-item">
-                        <button type="button" class="btn btn-light">Rule 3</button>
+                        <button type="button" class="btn btn-light" onclick="Windowopen()">Rule 3</button>
                     </li>
                     <li class="nav-item">
-                        <button type="button" class="btn btn-light">Rule 4</button>
+                        <button type="button" class="btn btn-light" onclick="Windowopen()">Rule 4</button>
                     </li>
                 </ul>
 
@@ -51,8 +51,7 @@
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
               <h1 class="h2">Rule #on click function</h1>
             </div>
-      
-            <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="2038" height="860" style="display: block; height: 430px; width: 1019px;"></canvas>
+            <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="2038" height="860" style="display: block; height: 430px; width: 1019px; padding-left: 24px; padding-right: 25px;"></canvas>
       
           </main>
         </div>
