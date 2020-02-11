@@ -24,11 +24,10 @@
                             "value": "0.9"
                         },
                         {
-                            "NAND": [{
-                                "rule": "length",
-                                "comparator": "<=",
-                                "value": "-5"
-                            }]
+                            "rule": "length",
+                            "comparator": "<=",
+                            "value": "-5"
+                            
                         }
                     ]
                 }
@@ -40,7 +39,7 @@
     },
     {
         "id" : 1,
-        "name": "The first rule is the best rule",
+        "name": "I AM NUMBER TWO",
         "tree": {
             "OR":
             [

@@ -9,7 +9,6 @@ class JSonParser:
     def convert_list_to_rules(self, parsed_list):
         rules = []
         for parsed_dict in parsed_list:
-
             my_rule = Rule()
             my_rule.rule_id = parsed_dict['id']
             my_rule.name = parsed_dict['name']
@@ -21,5 +20,5 @@ class JSonParser:
         return rules
     
     def convert_to_tree(self, tree_as_dict):  # TODO:
-
+        print("tree as dict is\n", tree_as_dict)
         return "ret"
