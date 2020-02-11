@@ -1,0 +1,35 @@
+{
+    "rule_id" : 1,
+    "condition_start": {
+        "AND":
+        [
+            {
+                "rule": "length",
+                "comparator": ">=",
+                "value": "2"
+            },
+            {
+                "OR":
+                [
+                    {
+                        "rule": "avgSeverity",
+                        "comparator": ">=",
+                        "value": "0.6"
+                    },
+                    {
+                        "rule": "maxSeverity",
+                        "comparator": ">=",
+                        "value": "0.9"
+                    },
+                    {
+                        "NAND": [{
+                            "rule": "length",
+                            "comparator": "<=",
+                            "value": "-5"
+                        }]
+                    }
+                ]
+            }
+        ]
+    }
+}
