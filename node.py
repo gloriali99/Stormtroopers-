@@ -14,6 +14,10 @@
 #     left = Node("left1")
 #     right = "right1"
 
+class RootNode:
+    root = None
+    def __init__(self, root = None):
+        self.root = root
 
 class OperatorNode:
     # fields:
@@ -30,7 +34,7 @@ class OperatorNode:
         self.children.append(child)
 
     def __str__(self):
-        ret = str(self.value) + ": "
+        ret = "OP < " + str(self.value) + " >: "
         ret += "["
         for c in self.children:
             ret += str(c) + ', '
@@ -53,17 +57,19 @@ class ConditionalNode:
         ret = str(self.attribute) + ' ' + self.operator + ' ' + self.threshold
         return ret
 
+
+
 # TODO: DELETE
-# EXAMPLE OF  WORKS
+# EXAMPLE OF HOW TREE WORKS
 
-o1 = OperatorNode('OR')
+# o1 = OperatorNode('OR')
 
-o2 = OperatorNode('AND')
-o2.add_child(ConditionalNode('cpu', '>', '60'))
-o2.add_child(ConditionalNode('ram', '>=', '80'))
-o2.add_child(ConditionalNode('heat', '>=', '100'))
+# o2 = OperatorNode('AND')
+# o2.add_child(ConditionalNode('cpu', '>', '60'))
+# o2.add_child(ConditionalNode('ram', '>=', '80'))
+# o2.add_child(ConditionalNode('heat', '>=', '100'))
 
-o1.add_child(ConditionalNode('cpu', '<', '2'))
-o1.add_child(o2)
+# o1.add_child(ConditionalNode('cpu', '<', '2'))
+# o1.add_child(o2)
 
-print(o1)
+# print(o1)
