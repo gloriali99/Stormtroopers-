@@ -1,6 +1,7 @@
 {
     "rule_id" : 1,
-    "condition_start": {
+    "name": "The first rule is the best rule",
+    "tree": {
         "AND":
         [
             {
@@ -31,5 +32,8 @@
                 ]
             }
         ]
-    }
+    },
+    "to": ["to1@gmail.com", "to2@outlook.com"],
+    "cc": [],
+    "bcc": []
 }
