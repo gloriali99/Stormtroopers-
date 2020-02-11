@@ -3,7 +3,7 @@
         "id" : 0,
         "name": "The first rule is the best rule",
         "tree": {
-            "AND":
+            "AND":  
             [
                 {
                     "rule": "length",
@@ -58,5 +58,17 @@
         "to": ["abc@gmail.com"],
         "cc": ["tothecc@cc.com"],
         "bcc": []
+    },
+    {
+        "id" : 2,
+        "name": "I AM NUMBER THREE",
+        "tree": {
+            "rule": "cluster",
+            "comparator": "==",
+            "value": "2" 
+        },
+        "to": ["abc@gmail.com"],
+        "cc": [],
+        "bcc": ["bcc@gmail.com"]
     }
 ]

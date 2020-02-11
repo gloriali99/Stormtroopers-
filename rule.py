@@ -11,10 +11,10 @@ class Rule:
         ret += '\nRule class:\n'
         ret += 'id = ' + str(self.rule_id) + '\n'
         ret += 'name = ' + self.name + '\n'
-        ret += 'tree = ' + str(self.tree) + '\n'
-        ret += "to =" + str(self.to) + '\n'
-        ret += "cc =" + str(self.cc) + '\n'
-        ret += "bcc =" + str(self.bcc) + '\n'
+        ret += 'tree = [[' + str(self.tree) + ']]\n'
+        ret += "to = " + str(self.to) + '\n'
+        ret += "cc = " + str(self.cc) + '\n'
+        ret += "bcc = " + str(self.bcc) + '\n'
 
 
 

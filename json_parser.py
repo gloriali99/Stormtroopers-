@@ -1,6 +1,6 @@
 from kvstore import KVStore
-from rule import Rule
 from node import ConditionalNode, OperatorNode
+from rule import Rule
 
 class JSonParser:
     def parse_file_path_to_list(self, file_path):
@@ -29,16 +29,16 @@ class JSonParser:
 
         if len(tree_as_dict) == OPERATOR_NODE_ITEMS:
             for key in tree_as_dict:
-                root = OperatorNode(str(key))
+                node = OperatorNode(str(key))
                 children = []  # list of Nodes (either OperatorNode or ConditionalNode)
                 children_raw_list = tree_as_dict[key]
 
                 # recursively apply to all children
                 for c in children_raw_list:
-                    node = self.convert_to_tree(c)
-                    children.append(node)
-                root.children = children
-                return root
+                    child_node = self.convert_to_tree(c)
+                    children.append(child_node)
+                node.children = children
+                return node
 
         # if len(dict) == 3, we have a ConditionalNode
         # convert it to a ConditionalNode and return that

@@ -1,8 +1,22 @@
-class OperatorNode:
+import random
+class Node:
+    ID_LENGTH = 16
+    _id = None
+    _type = None
+    
+    def id_generator_str(self, length):
+        value_str = ''
+        for _ in range(length):
+            value_str += str(random.randint(0,9))
+        return value_str
+
+class OperatorNode(Node):
     '''
-    Class that holds information for an OperatorNode:
+    Class that holds information for an OperatorNode (extends Node):
 
     Fields:
+    _id::str - randomly generated str
+    _type::str - 'OperatorNode' or 'ConditionalNode'
     value::str - holds 'AND' or 'OR'
     children::list - holds a list of Nodes (both types)
 
@@ -13,6 +27,8 @@ class OperatorNode:
     children = None
 
     def __init__(self, value):
+        self._id = self.id_generator_str(self.ID_LENGTH)
+        self._type = 'OperatorNode'
         self.value = value
         self.children = []
     
@@ -20,7 +36,7 @@ class OperatorNode:
         self.children.append(child)
 
     def __str__(self):
-        ret = "OP < " + str(self.value) + " >: "
+        ret = "<<" + self._id + ':' + str(self.value) + ">>: "
         ret += "["
         for c in self.children:
             ret += str(c) + ', '
@@ -29,11 +45,13 @@ class OperatorNode:
         return ret
 
 
-class ConditionalNode:
+class ConditionalNode(Node):
     '''
-    Class that holds information for a ConditionalNode:
+    Class that holds information for a ConditionalNode (extends Node):
 
     Fields:
+    _id::str - randomly generated str
+    _type::str - 'OperatorNode' or 'ConditionalNode'
     attribute::str - holds the attribute name, ie 'maxAnomalySeverity'
     operator::str - holds an operator in str form, ie '<' or '='
     threshold::str - holds threshold (some number), ie '5.5'
@@ -43,6 +61,8 @@ class ConditionalNode:
     threshold = None
 
     def __init__(self, a, o, t):
+        self._id = self.id_generator_str(self.ID_LENGTH)
+        self._type = 'ConditionalNode'
         self.attribute = a
         self.operator = o
         self.threshold = t
