@@ -1,6 +1,6 @@
 from kvstore import KVStore
 from rule import Rule
-from node import ConditionalNode, OperatorNode, RootNode
+from node import ConditionalNode, OperatorNode
 
 class JSonParser:
     def parse_file_path_to_list(self, file_path):

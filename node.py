@@ -1,28 +1,14 @@
-# class Node:
-#     node_operator = False
-#     if its false:
-#         means node is a condition
-#         and will have {
-#             attribute, opeartor, threshold
-#         }
-#     else:
-#         node is an opeartor
-#         look at its child 
-
-#     name = "AND"
-#     children = [Node("child1"), ... ]
-#     left = Node("left1")
-#     right = "right1"
-
-class RootNode:
-    root = None
-    def __init__(self, root = None):
-        self.root = root
-
 class OperatorNode:
-    # fields:
-    # value: "AND" or "OR"
-    # children = []
+    '''
+    Class that holds information for an OperatorNode:
+
+    Fields:
+    value::str - holds 'AND' or 'OR'
+    children::list - holds a list of Nodes (both types)
+
+    Functions: 
+    add_child(child::Node) - will add an OpNode or CondNode to children list 
+    '''
     value = None
     children = None
 
@@ -44,6 +30,14 @@ class OperatorNode:
 
 
 class ConditionalNode:
+    '''
+    Class that holds information for a ConditionalNode:
+
+    Fields:
+    attribute::str - holds the attribute name, ie 'maxAnomalySeverity'
+    operator::str - holds an operator in str form, ie '<' or '='
+    threshold::str - holds threshold (some number), ie '5.5'
+    '''
     attribute = None
     operator = None
     threshold = None
@@ -59,7 +53,6 @@ class ConditionalNode:
 
 
 
-# TODO: DELETE
 # EXAMPLE OF HOW TREE WORKS
 
 # o1 = OperatorNode('OR')
