@@ -3,8 +3,8 @@ from node import ConditionalNode, OperatorNode
 from rule import Rule
 
 class JSONParser:
-    def parse_file_path_to_list(self, file_path):
-        events_kv = KVStore(file_path, 'id')
+    def parse_path_to_list(self, file_path, key):
+        events_kv = KVStore(file_path, key)
         return events_kv.data
 
     def convert_list_to_rules(self, parsed_list):
