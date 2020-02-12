@@ -1,40 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-<!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<head> 
 <title> Stormtroopers </title>
 
 <script type="text/javascript" src="main.js"> </script>
-<<<<<<< HEAD
-<link rel="stylesheet" type="text/css" href="main.css"> </link>-->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-</head>
-
-<body onload="loadDashboard();">
-
-
-    <nav class="navbar navbar-dark bg-dark" style="height:70px;">
-        <span class="navbar-brand mb-0 h1">Stormtroopers</span>
-      </nav>
-
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                        <span>Saved reports</span>
-                        <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
-                        </a>
-                      </h6>
-                </nav>
-                </div>
-=======
 <link rel="stylesheet" type="text/css" href="main.css"> </link>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -45,7 +15,7 @@
 <body onload="loadDashboard();">
     
     <nav class="navbar navbar-dark bg-dark p-0 shadow" style="z-index: 1030">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Stormtroopers</a>
+        <h1 class="navbar-brand col-sm-3 col-md-2 mr-0" href="#" style="color:#c71658;">Stormtroopers</h1>
       </nav>
 
 <div class="container-fluid">
@@ -54,19 +24,27 @@
             <div class="sidebar-sticky">
 
                 <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                    <span>SAVED RULES</span>
-                    <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+
+                        <span>SAVED RULES</span>
+
+        
+                    <a class="d-flex align-items-center text-muted" href="#" onclick="plusFunction()">
+                    <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle">
+                        <circle cx="12" cy="12" r="10">
+                        </circle>
+                        <line x1="12" y1="8" x2="12" y2="16">
+                        </line><line x1="8" y1="12" x2="16" y2="12">
+                        </line>
+                    </svg>
                     </a>
                 </h6>
->>>>>>> Dashboard
 
-                <ul class="nav flex-column justify-content-center">
+                <ul class="nav flex-column justify-content-center" id="plus" style="padding-left: 40px;" id="nav-button-container">
                     <li class="nav-item">
-                        <button type="button" class="btn btn-dark" onclick="Windowopen()" >Rule 1</button>
+                        <button type="button" class="btn btn-dark" onclick="Windowopen()">Rule 1</button>
                     </li>
                     <li class="nav-item">
-                        <button type="button" class="btn btn-dark" onclick="Windowopen() ">Rule 2</button>
+                        <button type="button" class="btn btn-dark" onclick="Windowopen()">Rule 2</button>
                     </li>
                     <li class="nav-item">
                         <button type="button" class="btn btn-dark" onclick="Windowopen()">Rule 3</button>
@@ -81,38 +59,70 @@
 
         <main role="main" class="bg-dark col-md-9 ml-sm-auto col-lg-10 px-4"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
             <div class="bg-dark d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-              <h1 class="h2">Rule #on click function</h1>
+              <h1 class="h2">Rule</h1>
             </div>
-<<<<<<< HEAD
-            <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="2038" height="860" style="display: block; height: 430px; width: 1019px; padding-left: 24px; padding-right: 25px;"></canvas>
 
-=======
-            <canvas class="bg-dark my-4 w-100 chartjs-render-monitor" id="myChart" width="2038" height="860" style="display: block; height: 430px; width: 1019px; padding-left: 24px; padding-right: 25px;"></canvas>
-      
->>>>>>> Dashboard
-          </main>
+            <!--Content table-->
+            <div class="row">
+                <div class="col-lg-12 bg-dark"> 
+                    <div class="card-header bg-secondary">
+                        TAB BARSSSSSS
+                    </div>
+                    <div class="card-body bg-light" style="padding-left:10px">
+                        <!--Inner box of the form-->
+                        <div class="card">
+                            <div class="card-body">
+                                
+                                <label for="exampleFormControlSelect1">Events Attribute</label>
+
+                                    <div class="form-group col-md-6"> 
+                                     
+                                        <div>  
+                                          <!--select fields -->
+                                            <div class="row">
+                                                <div class="col-6">
+                                                <select class="form-inline form-control-lg" id="exampleFormControlSelect1"  style="width:auto">
+                                                <option>Attribute 1 </option>
+                                                <option>Attribute 2</option>
+                                                <option>Attribute 3</option>
+                                                <option>Attribute 4</option>
+                                                <option>Attribute 5</option>
+                                                </select>
+                                             </div>
+
+                                      
+                                             <div class="row">
+                                                <div class="col-6">
+                                                <select class="form-inline form-control-lg" id="exampleFormControlSelect1"  style="width:auto ">
+                                                    <option>Attribute 1 </option>
+                                                    <option>Attribute 2</option>
+                                                    <option>Attribute 3</option>
+                                                    <option>Attribute 4</option>
+                                                    <option>Attribute 5</option>
+                                                </select>
+                                           
+
+                                        </div>
+                                    </div>    
+
+                            </div>
+                        </div>
+                    </div>
+
+                  
+                    </div>
+                       
+                </div>
+            </div>  
+
+              <!--Background-->
+              <canvas class="bg-dark my-4 w-100 chartjs-render-monitor" id="myChart" width="2038" height="860" style="display: block; height: 430px; width: 1019px; padding-left: 24px; padding-right: 25px;"></canvas>
+             
+
+        </main>
         </div>
-    </div>
-    <div class="col-9">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div class="navbar-nav">
-                <a class="nav-item nav-link active page-item" href="#">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link page-item" href="#">Features</a>
-                <a class="nav-item nav-link page-item" href="#">Pricing</a>
-                <a class="nav-item nav-link disabled page-item" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-              </div>
-            </div>
-          </nav>
-    </div>
+
 </div>
-
-
-
 
 </body>
 
