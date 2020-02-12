@@ -4,8 +4,9 @@ import sys
 
 sys.path.insert(0, '/the/folder/path/python_files')
 
-from python_files.node_old import *
+from python_files.node import *
 from python_files.pass_forms_data import *
+from python_files.bootcamp_emails import *
 
 o1 = OperatorNode('OR')
 o2 = OperatorNode('AND')
@@ -17,6 +18,9 @@ o1.add_child(ConditionalNode('cpu', '<', '2'))
 o1.add_child(o2)
 
 print(o1)
+print('\n')
+
+send_email('stormtrooperlabs2020@gmail.com', 'tormtrooperlabs2020@gmail.com', 'reply_email', 1)
 
 app = Flask(__name__)
 
@@ -31,9 +35,9 @@ def render_static_tree():
     return render_template('sample_tree.html', o1=o1)
 
 # email page
-@app.route('/email')
-def render_static_email():
-    return render_template('email.html')
+# @app.route('/email')
+# def render_static_email():
+#     return render_template('email_generic.html')
 
 # Store json files using this method
 @app.route('/form', methods=['GET', 'POST'])
