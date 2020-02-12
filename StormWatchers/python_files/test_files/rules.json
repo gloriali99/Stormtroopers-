@@ -3,31 +3,25 @@
         "id" : 0,
         "name": "The first rule is the best rule",
         "tree": {
-            "AND":  
+            "OR":  
             [
                 {
-                    "rule": "length",
+                    "rule": "maxAnomalySeverity",
                     "comparator": ">=",
-                    "value": "2"
+                    "value": "0.995"
                 },
                 {
-                    "OR":
+                    "AND":
                     [
                         {
-                            "rule": "avgSeverity",
+                            "rule": "avgAnomalySeverity",
                             "comparator": ">=",
-                            "value": "0.6"
+                            "value": "0.5"
                         },
                         {
-                            "rule": "maxSeverity",
-                            "comparator": ">=",
-                            "value": "0.9"
-                        },
-                        {
-                            "rule": "length",
-                            "comparator": "<=",
-                            "value": "-5"
-                            
+                            "rule": "cluster_id",
+                            "comparator": "==",
+                            "value": "4"
                         }
                     ]
                 }
@@ -41,46 +35,22 @@
         "id" : 1,
         "name": "I AM NUMBER TWO",
         "tree": {
-            "OR":
+            "AND":  
             [
                 {
-                    "rule": "length",
-                    "comparator": "<=",
-                    "value": "2"
+                    "rule": "anomalyChainLength",
+                    "comparator": "==",
+                    "value": "5"
                 },
                 {
-                    "rule": "length",
+                    "rule": "maxAnomalySeverity",
                     "comparator": ">=",
-                    "value": "8"
+                    "value": "0.995"
                 }
             ]
         },
-        "to": ["abc@gmail.com"],
-        "cc": ["tothecc@cc.com"],
-        "bcc": []
-    },
-    {
-        "id" : 2,
-        "name": "I AM NUMBER THREE",
-        "tree": {
-            "rule": "cluster",
-            "comparator": "==",
-            "value": "2" 
-        },
-        "to": ["abc@gmail.com"],
+        "to": ["hello@world.com"],
         "cc": [],
-        "bcc": ["bcc@gmail.com"]
-    },
-    {
-        "id" : 3,
-        "name": "I AM NUMBER FOUR",
-        "tree": {
-            "rule": "cluster",
-            "comparator": "==",
-            "value": "2" 
-        },
-        "to": ["abc@gmail.com"],
-        "cc": [],
-        "bcc": ["bcc@gmail.com"]
+        "bcc": ["BCC@CCB.BCB"]
     }
 ]

@@ -26,10 +26,6 @@ class Rule:
         if index_to_remove > -1:
             parent.children.pop(index_to_remove)
             del nodes_index[node_id]
-        
-        
-
-
 
     def add_node(self, parent_id, child):
         '''
@@ -84,8 +80,6 @@ class Rule:
 
     def __str__(self):
         ret = '\n++++++++++++++++++++++++++++++++++++++++'
-
-
         ret += '\nRule class:\n'
         ret += 'id = ' + str(self.rule_id) + '\n'
         ret += 'name = ' + self.name + '\n'
@@ -93,11 +87,6 @@ class Rule:
         ret += "to = " + str(self.to) + '\n'
         ret += "cc = " + str(self.cc) + '\n'
         ret += "bcc = " + str(self.bcc) + '\n'
-
-
-
-
-
         ret += '++++++++++++++++++++++++++++++++++++++++\n'
         
         return ret
