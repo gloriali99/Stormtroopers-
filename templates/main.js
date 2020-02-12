@@ -38,3 +38,19 @@ function plusFunction(name) {
         button.innerHTML = name;
     }
 }
+
+function searchFunction() {
+    let input = document.getElementById("myInput");
+    let filter = input.value.toUpperCase();
+    let ul = document.getElementById("plus");
+    let li = ul.getElementsByTagName("li");
+    for (let i = 0; i < li.length; i++) {
+        let button= li[i].getElementsByTagName("button")[0];
+        let txtValue = button.textContent || button.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
