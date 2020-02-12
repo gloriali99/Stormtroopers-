@@ -15,9 +15,9 @@
 
 <body onload="loadDashboard();">
     
-<div class="jumbo text-top-left">
-    <h2> Stormtroopers </h2>
-</div>
+    <nav class="navbar navbar-dark bg-dark p-0 shadow">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Stormtroopers</a>
+      </nav>
 
 <!--Container for everything-->
 <div class="container-fluid">
@@ -37,13 +37,13 @@
                         <button type="button" class="btn btn-light" onclick="Windowopen()" >Rule 1</button>
                     </li>
                     <li class="nav-item">
-                        <button type="button" class="btn btn-light">Rule 2</button>
+                        <button type="button" class="btn btn-light" onclick="Windowopen() ">Rule 2</button>
                     </li>
                     <li class="nav-item">
-                        <button type="button" class="btn btn-light">Rule 3</button>
+                        <button type="button" class="btn btn-light" onclick="Windowopen()">Rule 3</button>
                     </li>
                     <li class="nav-item">
-                        <button type="button" class="btn btn-light">Rule 4</button>
+                        <button type="button" class="btn btn-light" onclick="Windowopen()">Rule 4</button>
                     </li>
                 </ul>
 
@@ -58,10 +58,19 @@
             <div class="row">
                 <div class="col-lg-12"> 
                     <div class="card-header">
-                    Quote
+                        TAB BARSSSSSS
                     </div>
                     <div class="card-body">
-                    WHEEEEEEEEEEEEE
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Events Attribute</label>
+                            <select class="form-control" id="exampleFormControlSelect1"  style="width:auto">
+                              <option>Attribute 1 </option>
+                              <option>Attribute 2</option>
+                              <option>Attribute 3</option>
+                              <option>Attribute 4</option>
+                              <option>Attribute 5</option>
+                            </select>
+                          </div>
                 </div>
             </div>
             <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="2038" height="860" style="display: block; height: 430px; width: 1019px;"></canvas>
