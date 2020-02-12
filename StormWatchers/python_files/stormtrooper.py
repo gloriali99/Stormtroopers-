@@ -49,7 +49,6 @@ class StormTrooper:
             my_rule.rule_id = parsed_dict['id']
             my_rule.name = parsed_dict['name']
 
-
             # add a root node connected to the tree
             root = OperatorNode('ROOT')
             root._id = '0'
@@ -63,7 +62,6 @@ class StormTrooper:
 
             # set rule_dict
             my_rule.setup_conditions_index_dict()
-
             rules[my_rule.rule_id] = my_rule
         return rules
 
@@ -98,5 +96,21 @@ class StormTrooper:
         return None
 
 
-    # return {rule_id : }
-    # def execute()
+    # return {rule_id : [issue_number] } - dictionary with keys = rule_id, corresponding
+    # to which issue_number (event) matches with that rule_id
+    def get_rule_to_event_list(self):
+        to_return = {}
+        ops = 0
+        for event_id in self.events:
+            event = self.events[event_id]
+            for rule_id in self.rules:
+                ops += 1
+                rule = self.rules[rule_id]
+                node = rule.root.children[0]
+                if node.apply_comparison(event.attributes):
+                    rule_list = to_return.get(rule.rule_id, [])
+                    rule_list.append(event.key)
+                    to_return[rule.rule_id] = rule_list
+
+        # print(eval("2<3"), ops, eval("True and False"))
+        return to_return

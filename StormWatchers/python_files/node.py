@@ -10,6 +10,35 @@ class Node:
             value_str += str(random.randint(0,9))
         return value_str
 
+    def apply_comparison(self, event_attributes):  # boolean function: returns True or False
+        if self._type == 'ConditionalNode':
+            # check to see if attribute exists as an event attribute,
+            # if it doesn't, return False
+            # if it is true, we get the value of the event from the key (attribute)
+            # append that with this node's operator and threshold
+            # run python's function 'eval' on this string to evaluate into a boolean
+            attribute_value = event_attributes.get(self.attribute, None)
+            if not attribute_value:
+                return False
+            eval_str = str(attribute_value) + ' ' + str(self.operator) + ' ' + str(self.threshold)
+            return eval(eval_str)
+
+        if self._type == 'OperatorNode':
+            for child_node in self.children:
+                if self.value == 'OR' and child_node.apply_comparison(event_attributes):
+                    return True
+                elif self.value == 'AND' and not child_node.apply_comparison(event_attributes):
+                    return False
+
+            # if node is OR, node would've been early exited if any one is True
+            # if none are true, (ie all is false) we will return false
+            # similar logic for AND, if one is not true, we would have returned False
+            # so we return True
+            if self.value == 'OR':
+                return False
+            else:
+                return True 
+
 
 class OperatorNode(Node):
     '''
@@ -37,7 +66,7 @@ class OperatorNode(Node):
         self.children.append(child_node)
 
     def __str__(self):
-        ret = "<<" + self._id + '::' + str(self.value) + ">>: "
+        ret = "<<{}>>:".format(self.value)
         ret += "["
         for c in self.children:
             ret += str(c) + ', '
@@ -69,22 +98,6 @@ class ConditionalNode(Node):
         self.threshold = t
     
     def __str__(self):
-        ret = "<<" + self._id + ">>: "
+        ret = ''
         ret += str(self.attribute) + ' ' + self.operator + ' ' + self.threshold
         return ret
-
-
-
-# EXAMPLE OF HOW TREE WORKS
-
-# o1 = OperatorNode('OR')
-
-# o2 = OperatorNode('AND')
-# o2.add_child(ConditionalNode('cpu', '>', '60'))
-# o2.add_child(ConditionalNode('ram', '>=', '80'))
-# o2.add_child(ConditionalNode('heat', '>=', '100'))
-
-# o1.add_child(ConditionalNode('cpu', '<', '2'))
-# o1.add_child(o2)
-
-# print(o1)

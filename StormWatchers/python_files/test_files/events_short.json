@@ -1,0 +1,437 @@
+[
+	{
+		"ticket-data": null,
+		"issue-number": 0,
+		"_key": "m280yr1khq4ntyep0fz4rlvz",
+		"_user": "nobody",
+		"alert-chain": [{
+			"expected_value": 17.596127304398635,
+			"value": 10.843090670604164,
+			"_time": 1580504890.151846,
+			"host": "pull_data_generators_script",
+			"severity": 0.2703376879912157,
+			"tier": 4,
+			"metric": "Balance Betting"
+		}, {
+			"expected_value": 103.53937564764153,
+			"value": 6.932290835000705,
+			"_time": 1580504889.3193219,
+			"host": "pull_data_generators_script",
+			"severity": 0.19050479004401816,
+			"tier": 5,
+			"metric": "Cheque Requests"
+		}, {
+			"expected_value": 20.957329125642993,
+			"value": 31.105723045028604,
+			"_time": 1580504901.3951085,
+			"host": "pull_data_generators_script",
+			"severity": 0.7472580785718983,
+			"tier": 3,
+			"metric": "Cage"
+		}, {
+			"expected_value": 69.52953324793997,
+			"value": 64.85602328404183,
+			"_time": 1580504892.5354903,
+			"host": "pull_data_generators_script",
+			"severity": 0.9988019995041532,
+			"tier": 4,
+			"metric": "Safe Keeping Cash Out"
+		}, {
+			"expected_value": 4.411451175130168,
+			"value": 42.976427773422586,
+			"_time": 1580504932.1258895,
+			"host": "pull_data_generators_script",
+			"severity": 0.13635873334272222,
+			"tier": 3,
+			"metric": "Electronic Gaming Machines"
+		}]
+	}, {
+		"ticket-data": null,
+		"issue-number": 1,
+		"_key": "u0m9buvy4tdlew472n5bght3",
+		"_user": "nobody",
+		"alert-chain": [{
+			"expected_value": 39.582007805539796,
+			"value": 51.77967464712717,
+			"_time": 1581126540.2176852,
+			"host": "pull_data_generators_script",
+			"severity": 0.8935707577341198,
+			"tier": 3,
+			"metric": "Ticket not at Home"
+		}, {
+			"expected_value": 33.04188790572756,
+			"value": 29.359159092646458,
+			"_time": 1581126549.8070033,
+			"host": "pull_data_generators_script",
+			"severity": 0.34489464936711234,
+			"tier": 3,
+			"metric": "Ticket Swapping"
+		}, {
+			"expected_value": 25.550717622095913,
+			"value": 52.43468137609986,
+			"_time": 1581126557.0800467,
+			"host": "pull_data_generators_script",
+			"severity": 0.995882390597593,
+			"tier": 4,
+			"metric": "Table Games"
+		}, {
+			"expected_value": 53.93003078809808,
+			"value": 30.356880017796648,
+			"_time": 1581126540.0944507,
+			"host": "pull_data_generators_script",
+			"severity": 0.4224602670569471,
+			"tier": 2,
+			"metric": "Refining"
+		}, {
+			"expected_value": -8.168603519419655,
+			"value": 85.9525585031674,
+			"_time": 1581126566.7172682,
+			"host": "pull_data_generators_script",
+			"severity": 0.8400563981311301,
+			"tier": 1,
+			"metric": "3rd Party Cheque"
+		}]
+	}, {
+		"ticket-data": null,
+		"issue-number": 2,
+		"_key": "ngrs79bd2cc0vbfhavkx77de",
+		"_user": "nobody",
+		"alert-chain": [{
+			"expected_value": 73.89108497115805,
+			"value": 52.7808870965805,
+			"_time": 1580797573.1851225,
+			"host": "pull_data_generators_script",
+			"severity": 0.694554024955873,
+			"tier": 2,
+			"metric": "No Play"
+		}, {
+			"expected_value": 80.6968465073099,
+			"value": 77.94967569008126,
+			"_time": 1580797581.6543686,
+			"host": "pull_data_generators_script",
+			"severity": 0.3376392316242995,
+			"tier": 5,
+			"metric": "Table Games"
+		}, {
+			"expected_value": 41.11341323836332,
+			"value": 23.069553757056656,
+			"_time": 1580797582.2319944,
+			"host": "pull_data_generators_script",
+			"severity": 0.9913070335076418,
+			"tier": 1,
+			"metric": "3rd Party Cheque"
+		}, {
+			"expected_value": 7.382053362663495,
+			"value": 75.50973835848268,
+			"_time": 1580797580.528126,
+			"host": "pull_data_generators_script",
+			"severity": 0.6993925783526131,
+			"tier": 4,
+			"metric": "The Star Gold Coast"
+		}, {
+			"expected_value": 63.616678853224954,
+			"value": 33.389704151881276,
+			"_time": 1580797588.4023633,
+			"host": "pull_data_generators_script",
+			"severity": 0.9071116775907548,
+			"tier": 4,
+			"metric": "Balance Betting"
+		}, {
+			"expected_value": 71.24660056911053,
+			"value": 54.449552910888876,
+			"_time": 1580797573.51562,
+			"host": "pull_data_generators_script",
+			"severity": 0.23118828729683075,
+			"tier": 4,
+			"metric": "Treasury Casino Brisbane"
+		}]
+	}, {
+		"ticket-data": null,
+		"issue-number": 3,
+		"_key": "apohyd9qr3afa47mqxn39y3z",
+		"_user": "nobody",
+		"alert-chain": [{
+			"expected_value": 82.30029959271177,
+			"value": 12.564549670241195,
+			"_time": 1580906102.7122636,
+			"host": "pull_data_generators_script",
+			"severity": 0.31705050883068575,
+			"tier": 2,
+			"metric": "Refining"
+		}, {
+			"expected_value": 30.02721623587161,
+			"value": 99.60991394673475,
+			"_time": 1580906108.7549033,
+			"host": "pull_data_generators_script",
+			"severity": 0.23953830577658528,
+			"tier": 2,
+			"metric": "Balance Betting"
+		}, {
+			"expected_value": 89.27856407734535,
+			"value": 27.95715062270277,
+			"_time": 1580906110.758766,
+			"host": "pull_data_generators_script",
+			"severity": 0.2826067906308172,
+			"tier": 1,
+			"metric": "Cheque Requests"
+		}]
+	}, {
+		"ticket-data": null,
+		"issue-number": 4,
+		"_key": "bmwbn798lme0nq9nz81kbfdy",
+		"_user": "nobody",
+		"alert-chain": [{
+			"expected_value": 100.05931794266664,
+			"value": 63.765133216788314,
+			"_time": 1580252670.7500434,
+			"host": "pull_data_generators_script",
+			"severity": 0.6190155611954179,
+			"tier": 4,
+			"metric": "The Star Gold Coast"
+		}, {
+			"expected_value": 50.88492828122505,
+			"value": 40.34925490126243,
+			"_time": 1580252683.575741,
+			"host": "pull_data_generators_script",
+			"severity": 0.5782334134797515,
+			"tier": 2,
+			"metric": "Ticket not at Home"
+		}, {
+			"expected_value": 50.81200177121983,
+			"value": 58.667160409213274,
+			"_time": 1580252678.6779766,
+			"host": "pull_data_generators_script",
+			"severity": 0.3758958086304206,
+			"tier": 5,
+			"metric": "Table Games"
+		}, {
+			"expected_value": 33.77949819973392,
+			"value": 66.951053006276,
+			"_time": 1580252701.1891675,
+			"host": "pull_data_generators_script",
+			"severity": 0.9975748583090719,
+			"tier": 3,
+			"metric": "Cage"
+		}]
+	}, {
+		"ticket-data": null,
+		"issue-number": 5,
+		"_key": "25a5zka8qp0zlx5m7b74dxbl",
+		"_user": "nobody",
+		"alert-chain": [{
+			"expected_value": 26.592130414080586,
+			"value": 44.60567264107527,
+			"_time": 1580990714.0773842,
+			"host": "pull_data_generators_script",
+			"severity": 0.8358758779062962,
+			"tier": 3,
+			"metric": "Ticket not at Home"
+		}, {
+			"expected_value": 28.553189441326325,
+			"value": 12.642379089301627,
+			"_time": 1580990735.9461389,
+			"host": "pull_data_generators_script",
+			"severity": 0.48375326727616746,
+			"tier": 3,
+			"metric": "Ticket Swapping"
+		}, {
+			"expected_value": 19.075930619015214,
+			"value": 51.575966799461,
+			"_time": 1580990726.2789602,
+			"host": "pull_data_generators_script",
+			"severity": 0.906861965741269,
+			"tier": 4,
+			"metric": "Table Games"
+		}, {
+			"expected_value": 42.774912004040395,
+			"value": 21.68211359806659,
+			"_time": 1580990721.2746975,
+			"host": "pull_data_generators_script",
+			"severity": 0.5678232835492235,
+			"tier": 2,
+			"metric": "Refining"
+		}, {
+			"expected_value": -8.037760146590863,
+			"value": 82.3212489274595,
+			"_time": 1580990747.7556932,
+			"host": "pull_data_generators_script",
+			"severity": 0.7287398557593735,
+			"tier": 1,
+			"metric": "3rd Party Cheque"
+		}]
+	}, {
+		"ticket-data": null,
+		"issue-number": 6,
+		"_key": "ndfroba6dbm24ysx7vebc0g9",
+		"_user": "nobody",
+		"alert-chain": [{
+			"expected_value": 90.82147561555563,
+			"value": 52.26926677649591,
+			"_time": 1580266061.3655007,
+			"host": "pull_data_generators_script",
+			"severity": 0.0001,
+			"tier": 3,
+			"metric": "Slave"
+		}, {
+			"expected_value": 41.20517668083423,
+			"value": 88.3389473651851,
+			"_time": 1580266065.1494448,
+			"host": "pull_data_generators_script",
+			"severity": 0.41475474889617486,
+			"tier": 2,
+			"metric": "APAC"
+		}, {
+			"expected_value": 83.97511021968282,
+			"value": 11.89709068086203,
+			"_time": 1580266057.5198965,
+			"host": "pull_data_generators_script",
+			"severity": 0.4442560430008935,
+			"tier": 1,
+			"metric": "Feed"
+		}, {
+			"expected_value": 81.31585284576526,
+			"value": -6.309604118187315,
+			"_time": 1580266057.3555105,
+			"host": "pull_data_generators_script",
+			"severity": 0.18186762616297214,
+			"tier": 3,
+			"metric": "Master"
+		}]
+	}, {
+		"ticket-data": null,
+		"issue-number": 7,
+		"_key": "ab7elkyddc1fo11en34gr18w",
+		"_user": "nobody",
+		"alert-chain": [{
+			"expected_value": 8.787948782677525,
+			"value": 8.646744046678801,
+			"_time": 1580239310.0801923,
+			"host": "pull_data_generators_script",
+			"severity": 0.29883374676199664,
+			"tier": 4,
+			"metric": "Balance Betting"
+		}, {
+			"expected_value": 106.64575007653826,
+			"value": -3.7204163310250324,
+			"_time": 1580239302.778946,
+			"host": "pull_data_generators_script",
+			"severity": 0.08029239672002213,
+			"tier": 5,
+			"metric": "Cheque Requests"
+		}, {
+			"expected_value": 22.96726406512765,
+			"value": 25.392444972529347,
+			"_time": 1580239298.0005333,
+			"host": "pull_data_generators_script",
+			"severity": 0.6892512181610566,
+			"tier": 3,
+			"metric": "Cage"
+		}, {
+			"expected_value": 69.55304608035799,
+			"value": 54.06675344073242,
+			"_time": 1580239312.919525,
+			"host": "pull_data_generators_script",
+			"severity": 0.9109883402353204,
+			"tier": 4,
+			"metric": "Safe Keeping Cash Out"
+		}, {
+			"expected_value": 5.807435839281794,
+			"value": 42.690763727990955,
+			"_time": 1580239328.8359947,
+			"host": "pull_data_generators_script",
+			"severity": 0.03924212219078589,
+			"tier": 3,
+			"metric": "Electronic Gaming Machines"
+		}]
+	}, {
+		"ticket-data": null,
+		"issue-number": 8,
+		"_key": "hj5bcffwofxixveys3u2zxbn",
+		"_user": "nobody",
+		"alert-chain": [{
+			"expected_value": 93.58934516710796,
+			"value": 53.548535020505085,
+			"_time": 1580430184.7518957,
+			"host": "pull_data_generators_script",
+			"severity": 0.7138450014207639,
+			"tier": 4,
+			"metric": "The Star Gold Coast"
+		}, {
+			"expected_value": 63.21319710814505,
+			"value": 24.18439502544897,
+			"_time": 1580430194.8518972,
+			"host": "pull_data_generators_script",
+			"severity": 0.471768190397139,
+			"tier": 2,
+			"metric": "Ticket not at Home"
+		}, {
+			"expected_value": 102.0351783860796,
+			"value": 54.388762557064425,
+			"_time": 1580430186.232635,
+			"host": "pull_data_generators_script",
+			"severity": 0.6165986544915554,
+			"tier": 4,
+			"metric": "The Star Gold Coast"
+		}, {
+			"expected_value": 39.05508774377349,
+			"value": 60.29318492099725,
+			"_time": 1580430210.133827,
+			"host": "pull_data_generators_script",
+			"severity": 0.9753488089843095,
+			"tier": 3,
+			"metric": "Cage"
+		}]
+	}, {
+		"ticket-data": null,
+		"issue-number": 9,
+		"_key": "m3nye0qsvsxfnc7h54z6fksp",
+		"_user": "nobody",
+		"alert-chain": [{
+			"expected_value": 43.91574218335727,
+			"value": 57.21162815990388,
+			"_time": 1580539803.9986596,
+			"host": "pull_data_generators_script",
+			"severity": 0.2492038516753265,
+			"tier": 4,
+			"metric": "The Star Gold Coast"
+		}]
+	}, {
+		"ticket-data": null,
+		"issue-number": 10,
+		"_key": "724tfgp27flfssrjsbma4ow8",
+		"_user": "nobody",
+		"alert-chain": [{
+			"expected_value": 33.00980643690097,
+			"value": 37.90864186139745,
+			"_time": 1580796457.8545206,
+			"host": "pull_data_generators_script",
+			"severity": 0.4362242415909108,
+			"tier": 1,
+			"metric": "Settings"
+		}, {
+			"expected_value": 40.87618560197522,
+			"value": 53.0707803985093,
+			"_time": 1580796467.532447,
+			"host": "pull_data_generators_script",
+			"severity": 0.9999,
+			"tier": 3,
+			"metric": "Slave"
+		}, {
+			"expected_value": 46.41134246826081,
+			"value": 51.235615075061155,
+			"_time": 1580796460.665844,
+			"host": "pull_data_generators_script",
+			"severity": 0.5275650352840712,
+			"tier": 2,
+			"metric": "USA"
+		}, {
+			"expected_value": 75.22614969294708,
+			"value": 37.19097220306983,
+			"_time": 1580796463.4630618,
+			"host": "pull_data_generators_script",
+			"severity": 0.6664458820104879,
+			"tier": 1,
+			"metric": "Home Page"
+		}]
+	}
+]
