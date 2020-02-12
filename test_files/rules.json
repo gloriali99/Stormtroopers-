@@ -70,5 +70,17 @@
         "to": ["abc@gmail.com"],
         "cc": [],
         "bcc": ["bcc@gmail.com"]
+    },
+    {
+        "id" : 3,
+        "name": "I AM NUMBER FOUR",
+        "tree": {
+            "rule": "cluster",
+            "comparator": "==",
+            "value": "2" 
+        },
+        "to": ["abc@gmail.com"],
+        "cc": [],
+        "bcc": ["bcc@gmail.com"]
     }
 ]

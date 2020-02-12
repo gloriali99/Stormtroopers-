@@ -10,6 +10,7 @@ class Node:
             value_str += str(random.randint(0,9))
         return value_str
 
+
 class OperatorNode(Node):
     '''
     Class that holds information for an OperatorNode (extends Node):
@@ -17,7 +18,7 @@ class OperatorNode(Node):
     Fields:
     _id::str - randomly generated str
     _type::str - 'OperatorNode' or 'ConditionalNode'
-    value::str - holds 'AND' or 'OR'
+    value::str - holds 'AND' or 'OR' or 'ROOT' (only single node)
     children::list - holds a list of Nodes (both types)
 
     Functions: 
@@ -36,7 +37,7 @@ class OperatorNode(Node):
         self.children.append(child)
 
     def __str__(self):
-        ret = "<<" + self._id + ':' + str(self.value) + ">>: "
+        ret = "<<" + self._id + '::' + str(self.value) + ">>: "
         ret += "["
         for c in self.children:
             ret += str(c) + ', '
@@ -68,7 +69,8 @@ class ConditionalNode(Node):
         self.threshold = t
     
     def __str__(self):
-        ret = str(self.attribute) + ' ' + self.operator + ' ' + self.threshold
+        ret = "<<" + self._id + ">>: "
+        ret += str(self.attribute) + ' ' + self.operator + ' ' + self.threshold
         return ret
 
 

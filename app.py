@@ -2,14 +2,15 @@ from json_parser import JSonParser
 
 print("Starting application...\n")
 
-test_json = 'test_files/alert_tree'
+test_json = 'test_files/rules'
 jsp_list = JSonParser().parse_file_path_to_list(test_json)
 rules = JSonParser().convert_list_to_rules(jsp_list)
 print("Parsed File:\n", rules)
 
 print("Rules are:")
 for r in rules:
-    print(r)
+    print("HERE:", r, r.conditions_index)
+
 
 
 print("Closing application...")

@@ -13,10 +13,22 @@ class JSonParser:
             my_rule = Rule()
             my_rule.rule_id = parsed_dict['id']
             my_rule.name = parsed_dict['name']
-            my_rule.tree = self.convert_to_tree(parsed_dict['tree'])
+
+
+            # add a root node connected to the tree
+            root = OperatorNode('ROOT')
+            root._id = '0'
+            root.add_child(self.convert_to_tree(parsed_dict['tree']))
+            my_rule.root = root
+
+
             my_rule.to = parsed_dict['to']
             my_rule.cc = parsed_dict['cc']
             my_rule.bcc = parsed_dict['bcc']
+
+            # set rule_dict
+            my_rule.setup_conditions_index_dict()
+
             rules.append(my_rule)
         return rules
     
