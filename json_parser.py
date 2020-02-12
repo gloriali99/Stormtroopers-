@@ -2,7 +2,7 @@ from kvstore import KVStore
 from node import ConditionalNode, OperatorNode
 from rule import Rule
 
-class JSonParser:
+class JSONParser:
     def parse_file_path_to_list(self, file_path):
         events_kv = KVStore(file_path, 'id')
         return events_kv.data

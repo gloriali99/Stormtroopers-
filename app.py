@@ -1,18 +1,13 @@
-from json_parser import JSonParser
+from stormtrooper import StormTrooper
 
 print("Starting application...\n")
 
-test_json = 'test_files/rules'
-jsp_list = JSonParser().parse_file_path_to_list(test_json)
-rules = JSonParser().convert_list_to_rules(jsp_list)
-print("Parsed File:\n", rules)
+my_stormtrooper = StormTrooper()
+my_stormtrooper.read_rules("test_files/rules")
 
 print("Rules are:")
-for r in rules:
+for r in my_stormtrooper.rules:
     print("HERE:", r, "\nRoot:  ", r.get_node('0'))
     
-    
-
-
 
 print("Closing application...")
