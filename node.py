@@ -33,8 +33,8 @@ class OperatorNode(Node):
         self.value = value
         self.children = []
     
-    def add_child(self, child):
-        self.children.append(child)
+    def add_child(self, child_node):
+        self.children.append(child_node)
 
     def __str__(self):
         ret = "<<" + self._id + '::' + str(self.value) + ">>: "

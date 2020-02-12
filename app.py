@@ -9,7 +9,9 @@ print("Parsed File:\n", rules)
 
 print("Rules are:")
 for r in rules:
-    print("HERE:", r, r.conditions_index)
+    print("HERE:", r, "\nRoot:  ", r.get_node('0'))
+    
+    
 
 
 
