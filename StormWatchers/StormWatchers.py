@@ -4,7 +4,7 @@ import sys
 
 sys.path.insert(0, '/the/folder/path/python_files')
 
-from python_files.node import *
+from python_files.node_old import *
 from python_files.pass_forms_data import *
 
 o1 = OperatorNode('OR')
