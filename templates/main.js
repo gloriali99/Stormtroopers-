@@ -1,6 +1,8 @@
 function loadDashboard() {
 
     console.log('world')
+    console.log(rules_data)
+    loadRulesButton()
 }
 
 
@@ -9,9 +11,15 @@ function loadDashboard() {
 // }
 // 
 
-function plusFunction() {
-    let ruletext = "Rule";
-    let rulecount = 1;
+function loadRulesButton(){
+    for (let count = 0; count < rules_data.length; count++){
+        plusFunction(rules_data[count].name)
+    } 
+
+}
+
+function plusFunction(name) {
+    
 
     let button = document.createElement("button");
     let buttonwrapper = document.createElement("li");
@@ -21,7 +29,12 @@ function plusFunction() {
 
     button.classList.add("btn");
     button.classList.add("btn-dark");
+    button.style.textAlign = "left";
     buttonwrapper.classList.add("nav-item");
-
-    button.innerHTML = "Rule" + String( 1);
+    if (name === undefined) {
+        button.innerHTML = " NEW RULE ";
+    }
+    else {
+        button.innerHTML = name;
+    }
 }
