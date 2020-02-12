@@ -9,6 +9,7 @@ class StormTrooper:
     '''
     rules = None
     events = None
+    rules_to_be_emailed = None
 
 
     def __init__(self):
@@ -111,6 +112,9 @@ class StormTrooper:
                     rule_list = to_return.get(rule.rule_id, [])
                     rule_list.append(event.key)
                     to_return[rule.rule_id] = rule_list
-
-        # print(eval("2<3"), ops, eval("True and False"))
+        self.rules_to_be_emailed = to_return
         return to_return
+
+    
+    def send_emails(self):
+        pass

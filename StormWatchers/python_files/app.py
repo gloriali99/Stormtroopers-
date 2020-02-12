@@ -1,7 +1,8 @@
 from stormtrooper import StormTrooper
 
-print("Starting application...\n")
+print("Starting application...")
 
+print("Importing JSONs...\n")
 my_stormtrooper = StormTrooper()
 my_stormtrooper.read_rules("test_files/rules")
 my_stormtrooper.read_events("test_files/events_short", "test_files/event_info_short")
@@ -11,7 +12,8 @@ for rid in my_stormtrooper.rules:
     r = my_stormtrooper.rules[rid]
     print("Rule {}:  ".format(r.rule_id), r.get_node('0'))
 
-print("\n\nEvents are:")
+print("\n")
+print("Events are:")
 for eid in my_stormtrooper.events:
     e = my_stormtrooper.events[eid]
     print("Event {}:".format(str(e.key)), e.attributes)
@@ -25,5 +27,12 @@ for r in rule_with_issues:
     print("        CC to: ", rule.cc)
     print("       BCC to: ", rule.bcc)
     print()
+
+print()
+print("Sending emails... not implemented")
+# for r in rule_with_issues:
+#     rule = my_stormtrooper.rules[r]
+#     for issue_number in rule_with_issues[r]:
+
 
 print("Closing application...")

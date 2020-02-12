@@ -1,14 +1,14 @@
 [
     {
         "id" : 0,
-        "name": "The first rule is the best rule",
+        "name": "rule matches event 10 (maxSev = 0.9999) and event 8 (second or statement)",
         "tree": {
             "OR":  
             [
                 {
                     "rule": "maxAnomalySeverity",
                     "comparator": ">=",
-                    "value": "0.995"
+                    "value": "0.9995"
                 },
                 {
                     "AND":
@@ -16,7 +16,7 @@
                         {
                             "rule": "avgAnomalySeverity",
                             "comparator": ">=",
-                            "value": "0.5"
+                            "value": "0.7"
                         },
                         {
                             "rule": "cluster_id",
@@ -28,12 +28,12 @@
             ]
         },
         "to": ["to1@gmail.com", "to2@outlook.com"],
-        "cc": [],
+        "cc": ["cc@cc.com"],
         "bcc": []
     },
     {
         "id" : 1,
-        "name": "I AM NUMBER TWO",
+        "name": "Rules with chain length = 5 and max >= 0.995",
         "tree": {
             "AND":  
             [
@@ -46,6 +46,28 @@
                     "rule": "maxAnomalySeverity",
                     "comparator": ">=",
                     "value": "0.995"
+                }
+            ]
+        },
+        "to": ["hello@world.com"],
+        "cc": [],
+        "bcc": ["BCC@CCB.BCB"]
+    },
+    {
+        "id" : 2,
+        "name": "THIS RULE SHOULD BE IMPOSSIBLE AS A MAX SEVERITY > 1 IS REQUIRED",
+        "tree": {
+            "AND":  
+            [
+                {
+                    "rule": "anomalyChainLength",
+                    "comparator": "==",
+                    "value": "5"
+                },
+                {
+                    "rule": "maxAnomalySeverity",
+                    "comparator": ">=",
+                    "value": "1.2"
                 }
             ]
         },
