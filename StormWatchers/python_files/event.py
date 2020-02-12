@@ -23,4 +23,4 @@ class Event:
         self.attributes['maxAnomalySeverity'] = max_severity
 
     def add_cluster_id(self, cluster_id):
-        self.attributes['cluster-id'] = cluster_id
+        self.attributes['cluster_id'] = cluster_id
