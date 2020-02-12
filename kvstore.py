@@ -36,7 +36,6 @@ class KVStore():
             
 
     def delete_one(self, id_):
-
         for index, item in enumerate(self.data[:]):
             if self.data[index][self.key] == id_:
                 del self.data[index]
@@ -46,20 +45,3 @@ class KVStore():
         for index, item in enumerate(self.data):
             if id_ == self.data[index][self.key]:
                 return self.data[index]
-
-
-
-if __name__ == "__main__":
-    events_kv = KVStore('events', 'event_id')
-    events = events_kv.get_all()
-    event = events_kv.get_one("0")
-    events_kv.delete_one("0")
-    events_kv.put_one("0", event)
-
-
-
-
-
-
-
-
