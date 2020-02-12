@@ -6,6 +6,7 @@ sys.path.insert(0, '/the/folder/path/python_files')
 
 from python_files.node import *
 from python_files.pass_forms_data import *
+from python_files.bootcamp_emails import *
 
 o1 = OperatorNode('OR')
 o2 = OperatorNode('AND')
@@ -18,10 +19,12 @@ o1.add_child(o2)
 
 print(o1)
 
+send_email('stormtrooperlabs2020@gmail.com', 'stormtrooperlabs2020@gmail.com', 'stormtrooperlabs2020@gmail.com', 1)
+
 app = Flask(__name__)
 
 # index
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def render_static_index():
     return render_template('index.html', num=10)
 
@@ -35,11 +38,21 @@ def render_static_tree():
 def render_static_email():
     return render_template('email.html')
 
-# form page
-@app.route('/form', methods=['POST'])
-def render_static_forms():
-    projectpath = request.form['projectFilepath']
-    return render_template('form.html')
+# Store json files using this method
+@app.route('/form', methods=['GET', 'POST'])
+def render_static_form():
+    # do stuff when the form is submitted
+    if request.method == 'POST':
+        condition = request.form['condition']
+        number = int(request.form['numberForLoop'])
+        print(condition)
+
+        # redirect to end the POST handling
+        # the redirect can be to the same route or somewhere else
+        return render_template('index.html', num=number, cond=condition)
+
+    # show the form, it wasn't submitted
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run()

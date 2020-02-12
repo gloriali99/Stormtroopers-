@@ -10,28 +10,30 @@ import time
 from kvstore import KVStore
 from datetime import datetime
 import json
+import os
 
 def send_email(to, cc, reply_email, issue_number):
-
+    # cwd = os.getcwd()
+    # print(cwd)
     message = MIMEMultipart("alternative")
     to_str = ",".join(to)
     cc_str = ",".join(cc)
     all_recipients = to + cc
 
-    sender = #TODO: Setup own AWS credentials
-    username = #TODO: Setup own AWS credentials
-    password = #TODO: Setup own AWS credentials
-    host = #TODO: Setup own AWS credentials
+    sender = "stormtrooperlabs2020@gmail.com"
+    username = "AKIA3U3Z4ZXN726UUD7C"
+    password = "BEwq9ALTo30q0DEYu7q7dxa3DCv0YzPIWTs8Vp435GnT"
+    host = "email-smtp.ap-southeast-2.amazonaws.com"
     port = 587  # innovate wifi
 
     message["Subject"] = "Email Alert"
-    message["From"] = #TODO: Setup own AWS credentials
+    message["From"] = "Stormtroopers <stormtrooperlabs2020@gmail.com>"
     message["To"] = to_str
     message["CC"] = cc_str
     message['Reply-to'] = "StormWatch <" + reply_email + ">"
 
     # Access the event in the kvstore. Uses the format of the issues_detected.json schema
-    issues_kv = KVStore(collection="issues_detected", key='issue-number') # Calls to Darius' kvstore.py
+    issues_kv = KVStore(collection="test_files/issues_detected", key='issue-number') # Calls to Darius' kvstore.py
     issue = issues_kv.get_one(issue_number)
 
     # Format email content into string for MIMEText input
@@ -85,11 +87,12 @@ def format_string_generic(issue_number, alert_chain):
 
 
 def format_html_generic(issue_number, alert_chain):
-
+    # cwd = os.getcwd()
+    # print(cwd + '\n')
     table = populate_table(alert_chain)
 
     try:
-        f = open("email_generic.html", "r")
+        f = open("templates/email_generic.html", "r")
     except OSError:
         print("Could not open/read email template file: email_generic.html")
         return
@@ -99,7 +102,7 @@ def format_html_generic(issue_number, alert_chain):
         htmltext = ''.join(htmltext)
 
     rows = populate_table(alert_chain)
-    
+
     #TODO: remove control reference from email heading
     return htmltext.format(event_id = issue_number, rows=rows)
 
@@ -126,13 +129,12 @@ def populate_table(alert_chain):
                     <td class="table">{severity}</td>
                 </tr>""".format(date = date, _time=_time, metric=anomaly["metric"], value=round(anomaly["value"], 4), expected_value=round(anomaly["expected_value"], 4), severity=round(anomaly["severity"], 4))
         rows.append(row)
-    
+
     return "".join(rows)
 
 if __name__ == "__main__":
-    to = ['ainslie.scott@accenture.com']
-    cc = ['ainslie.scott@accenture.com']
-    reply_email = 'ainslie.scott@accenture.com'
+    to = ['stormtrooperlabs2020@gmail.com']
+    cc = ['stormtrooperlabs2020@gmail.com']
+    reply_email = 'stormtrooperlabs2020@gmail.com'
     issue_number = 3
     send_email(to, cc, reply_email, issue_number)
-    
