@@ -5,12 +5,6 @@ function loadDashboard() {
     loadRulesButton()
 }
 
-
-// function Windowopen() {
-// document.getElementById("myChart")
-// }
-// 
-
 function loadRulesButton(){
     for (let count = 0; count < rules_data.length; count++){
         plusFunction(rules_data[count].name)
@@ -20,6 +14,11 @@ function loadRulesButton(){
 
 function plusFunction(name) {
     
+    if (document.getElementById("plus").childElementCount > 0 ){
+        if (document.getElementById("plus").lastElementChild.lastElementChild.innerHTML == "NEW RULE"){
+        return;
+        }
+    }
 
     let button = document.createElement("button");
     let buttonwrapper = document.createElement("li");
@@ -31,12 +30,18 @@ function plusFunction(name) {
     button.classList.add("btn-dark");
     button.style.textAlign = "left";
     buttonwrapper.classList.add("nav-item");
+    button.onclick = function() {
+        nameChange(this);
+    }
     if (name === undefined) {
-        button.innerHTML = " NEW RULE ";
+        button.innerHTML = "NEW RULE";
+        let title = document.getElementById("ruleHeader")
+        title.innerHTML = "NEW RULE";
     }
     else {
         button.innerHTML = name;
     }
+
 }
 
 function searchFunction() {
@@ -53,4 +58,11 @@ function searchFunction() {
             li[i].style.display = "none";
         }
     }
+}
+
+function nameChange(name){
+   let title = document.getElementById("ruleHeader");
+    console.log(name.innerHTML)
+    title.innerHTML = name.innerHTML;
+
 }
