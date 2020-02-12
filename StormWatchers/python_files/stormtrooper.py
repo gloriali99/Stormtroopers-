@@ -34,6 +34,7 @@ class StormTrooper:
             e.raw_chain = event_dict['alert-chain']
             e.process_alert_chain_attributes()
             e.add_cluster_id(event_info_dict['cluster_id'])
+            e.add_duration(event_info_dict['duration'])
             event_list[e.key] = e
         return event_list
 
