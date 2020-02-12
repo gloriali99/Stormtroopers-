@@ -2,6 +2,7 @@ from event import Event
 from kvstore import KVStore
 from node import ConditionalNode, OperatorNode
 from rule import Rule
+from bootcamp_emails import send_emails
 
 class StormTrooper:
     '''
@@ -118,4 +119,14 @@ class StormTrooper:
 
     
     def send_emails(self):
-        pass
+        rule_with_issues = self.get_rule_to_event_list()
+        return_email = 'return@return.accenture_bootcamp.com'
+        for r in rule_with_issues:
+            rule = self.rules[r]
+            issues_list = rule_with_issues[r]
+            for issue_number in issues_list:
+
+                # send emails with bootcamp_emails in format:
+                # to_list, cc_list, return_email_str, issue_number, rule_id
+                bootcamp_emails.send_emails(rule.to, rule.cc, return_email, issue_number, rule.rule_id)
+
