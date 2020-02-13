@@ -14,26 +14,36 @@
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-db44b196776521ea816683afab021f757616c80860d31da6232dedb8d7cc4862.js"></script>
+<script src='https://cdn.jsdelivr.net/jquery.query-builder/2.3.3/js/query-builder.standalone.min.js'></script>
 <link rel="stylesheet" type="text/css" href="main.css"> </link>
 <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+<!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/jquery.query-builder/2.3.3/css/query-builder.default.min.css'>
 </head>
 
 
 <body onload="loadDashboard();">
-    <!-- Top Navigation bar--> 
-    <nav class="navbar navbar-light bg-light p-0 shadow flex-md-nowrap" style="z-index: 1030; padding-left:20px">
-        <h3 class=" col-sm-3 col-md-2 mr-md" href="#" style="color:#c71658;">Stormtroopers</h3>
-        <!-- Searchbar-->
-        <input class="form-control form-control-dark w-100" id="myInput" type="text" placeholder="Search" aria-label="Search" style="width: 200px; padding-right: 20px;" onkeyup="searchFunction()">
-        <div style="width: 24px;"></div>
-      </nav>
-
-
-      <script src="app.js"></script>
+    <!-- Top Navigation bar-->
+    <div class="row">
+        <nav class="navbar navbar-light bg-light p-0 shadow flex-md-nowrap" style="z-index: 1030; padding-left:20px">
+            <div class="col 4">
+                <h1 class=" col-sm-3 col-md-2 mr-md" href="#" style="color:#c71658;">Stormtroopers</h3>
+            </div>
+                <!-- Searchbar-->
+            <div class="col 7">
+                <input class="form-control form-control-dark"  id="myInput" type="text" placeholder="Search" aria-label="Search" style="width: 200px; padding-right: 20px;" onkeyup="searchFunction()">
+            </div>
+            <div style="width: 500px;"></div>
+            <div class="col 1">
+                <button type="submit" class="btn btn-primary" background-color="#c71954" onclick="email_all()">Email <b>ALL</b></button>
+            </div>
+        </nav>
+    </div>
+    <script src="app.js"></script>
 
 <div class="container-fluid">
     <div class="row">
@@ -109,7 +119,7 @@
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                           </div>
                         </form>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary" onclick="save_field()">Save</button>
                       </div>
 
                     <!--THIS IS THE TAB FOR THE EMAIL-->
@@ -118,7 +128,7 @@
                               <div class="form-group">
                               <label for="exampleInputEmail1">TO:</label>
                               <input type="email" class="form-control" id="TO" aria-describedby="emailHelp" placeholder="Enter email">
-                              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                              <small id="emailHelp" class="form-text text-muted">To enter multiple email recipients separate using a comma.</small>
                               </div>
                   
                               <div class="form-group">
@@ -141,7 +151,7 @@
                               <!--<input type="checkbox" class="form-check-input" id="exampleCheck1">
                               <label class="form-check-label" for="exampleCheck1">Check me out</label>-->
                               </div>
-                              <button type="submit" class="btn btn-primary">Save</button>
+                              <button type="submit" class="btn btn-primary" onclick="save_field()">Save</button>
                           </form>
                       </div>
                   </div>

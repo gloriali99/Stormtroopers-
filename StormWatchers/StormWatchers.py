@@ -36,10 +36,10 @@ def render_static_index():
 
     return render_template('index.html', num=10, rules_dict=rules_dict)
 
-# another page
-@app.route('/tree')
-def render_static_tree():
-    return render_template('sample_tree.html', o1=o1)
+# # another page
+# @app.route('/tree')
+# def render_static_tree():
+#     return render_template('sample_tree.html', o1=o1)
 
 # email page
 # @app.route('/email')
@@ -74,11 +74,9 @@ def get_post_javascript_data():
     
     return jsdata
 
-
 @app.route('/getpythondata')
 def get_python_data():  # get 
     return json.dumps((StormTrooper().parse_path_to_list("python_files/test_files/rules", 'id')))  # TODO change rules path
-
 
 if __name__ == '__main__':
     app.run()
