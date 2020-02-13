@@ -2,11 +2,13 @@ from json_parser import JSonParser
 
 print("Starting application...\n")
 
-test_json = 'test_files/alert_tree.json'
-jsp_dict = JSonParser().parse_file_path_to_dict(test_json)
-my_rule = JSonParser().convert_dict_to_rule(jsp_dict)
+test_json = 'test_files/alert_tree'
+jsp_list = JSonParser().parse_file_path_to_list(test_json)
+rules = JSonParser().convert_list_to_rules(jsp_list)
+print("Rules are:\n")
+for r in rules:
+    print(r)
 
-
-print("Parsed File:\n", my_rule)
+print("Parsed File:\n", rules)
 
 print("Closing application...")
