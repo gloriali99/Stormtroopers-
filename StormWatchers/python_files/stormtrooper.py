@@ -145,16 +145,16 @@ class StormTrooper:
 
 
 
-    def convert_rule_json_js_to_python(self, js_dict):
-        to_return = {}
-        to_return['id'] = js_dict['id']
-        to_return['name'] = js_dict['name']
-        to_return['tree'] = self.convert_tree_js_to_python(js_dict['tree'])
+    # def convert_rule_json_js_to_python(self, js_dict):
+    #     to_return = {}
+    #     to_return['id'] = js_dict['id']
+    #     to_return['name'] = js_dict['name']
+    #     to_return['tree'] = self.convert_tree_js_to_python(js_dict['tree'])
 
-        return to_return
+    #     return to_return
 
-    def convert_tree_js_to_python(self, js_tree):
-        to_return = {}
-        print("JS TREE = ", js_tree)
-        # if len(js_tree) == 
-        return to_return
+    # def convert_tree_js_to_python(self, js_tree):
+    #     to_return = {}
+    #     print("JS TREE = ", js_tree)
+    #     # if len(js_tree) == 
+    #     return to_return

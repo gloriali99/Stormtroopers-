@@ -59,8 +59,8 @@ def render_static_form():
 def get_post_javascript_data():
     trooper = StormTrooper()
     jsdata = json.loads(request.form['javascript_data'])
-    trooper.convert_rule_json_js_to_python(jsdata)
-    print("jsdata=", jsdata)
+    # trooper.convert_rule_json_js_to_python(jsdata)
+    print("JSDATA IS SIS IS SIS S", jsdata)
     return jsdata
 
 
