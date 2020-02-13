@@ -1,5 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<head> 
+
+<title> Stormtroopers </title>
+<script type="text/javascript" src="rules.js"></script>
+<script type="text/javascript" src="main.js"> </script>
+<!--attatch jquery file-->
+
+<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-db44b196776521ea816683afab021f757616c80860d31da6232dedb8d7cc4862.js"></script>
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script src='https://cdn.jsdelivr.net/jquery.query-builder/2.3.3/js/query-builder.standalone.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="main.css"> </link>
+<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+
+
+<body onload="loadDashboard();">
+    <!-- Top Navigation bar--> 
+    <nav class="navbar navbar-light bg-light p-0 shadow flex-md-nowrap" style="z-index: 1030; padding-left:20px">
+        <h3 class=" col-sm-3 col-md-2 mr-md" href="#" style="color:#c71658;">Stormtroopers</h3>
+        <!-- Searchbar-->
+        <input class="form-control form-control-dark w-100" id="myInput" type="text" placeholder="Search" aria-label="Search" style="width: 200px; padding-right: 20px;" onkeyup="searchFunction()">
+        <div style="width: 24px;"></div>
+      </nav>
+
+
+      <script src="app.js"></script>
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Left Navigation bar-->
+        <nav class = "col-md-2 d-none d-md-block bg-dark sidebar shadow border-right border-light" style="width:200px;">
+            <div class="sidebar-sticky">
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+
+                        <span style="color:#EA7661">Add new rule</span>
+
+                    <!-- Circle button -->
+                    <a class="d-flex align-items-center text-muted" href="#" onclick="plusFunction()">
+                    <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle">
+                        <circle cx="12" cy="12" r="10">
+                        </circle>
+                        <line x1="12" y1="8" x2="12" y2="16">
+                        </line>
+                        <line x1="8" y1="12" x2="16" y2="12">
+                        </line>
+                    </svg>
+                    </a>
+                </h6>
+                <!-- Button Navigation Bar-->
+                <ul class="nav flex-column justify-content-center" id="plus" style="padding-left: 10px;" id="nav-button-container">
+                </ul>
+
+            </div>
+        </nav>
+
+        <!-- Pop up container-->
+        <main role="main" class="bg-secondary col-md-9 ml-sm-auto col-lg-10 px-4"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+            <div class="bg-secondary d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom border-warning">
+              <h4 class="h3" id="ruleHeader" style = "color:whitesmoke">Select a rule</h4>
+
+            </div>
+
+            <!--Content table-->
+            <div class="row">
+                <div class="col-lg-12"> 
+                    <div class="card-header bg-light">
+                      <!--Tab bar-->
+                      <ul class="nav nav-pills nav-fill">
+                        <li class="nav-item">
+                          <a class="nav-link active" href="#Conditions" role="tab" data-toggle="tab">Conditions</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#Description" role="tab" data-toggle="tab">Description</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#Email_R" role="tab" data-toggle="tab">Email Recipient</a>
+                        </li>
+                    </ul>
+
+                    <!--THIS IS THE CODE FOR THE CONDITIONS-->
+                    <div class="tab-content">
+                      <div role="tabpanel" class="tab-pane in active" id="Conditions"><div class="card-body bg-light" style="padding-left:10px"></div>
+                        <form>
+                            <div class="card">  
+                                <div class="form-group id=" > 
+                                    <div id="builder" style="display:block " ></div>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" id="btn-get">Save</button>
+                        </form>
+                    </div>
+
+
+
+                    <!--THIS IS THE CODE FOR THE DESCRIPTION-->
+                      <div role="tabpanel" class="tab-pane fade" id="Description"><form>
+                          <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Example textarea</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                          </div>
+                        </form>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                      </div>
+
+                    <!--THIS IS THE TAB FOR THE EMAIL-->
+                      <div role="tabpanel" class="tab-pane fade" id="Email_R">
+                          <form>
+                              <div class="form-group">
+                              <label for="exampleInputEmail1">TO:</label>
+                              <input type="email" class="form-control" id="TO" aria-describedby="emailHelp" placeholder="Enter email">
+                              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                              </div>
+                  
+                              <div class="form-group">
+                                  <label for="exampleInputEmail1">BCC:</label>
+                                  <input type="email" class="form-control" id="BCC" aria-describedby="emailHelp" placeholder="Enter email">
+                                  <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+                              </div>
+                  
+                              <div class="form-group">
+                                  <label for="exampleInputEmail1">CC:</label>
+                                  <input type="email" class="form-control" id="CC" aria-describedby="emailHelp" placeholder="Enter email">
+                                  <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+                              </div>
+                  
+                              <!--<div class="form-group">
+                              <label for="exampleInputPassword1">Password</label>
+                              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                              </div>-->
+                              <div class="form-check">
+                              <!--<input type="checkbox" class="form-check-input" id="exampleCheck1">
+                              <label class="form-check-label" for="exampleCheck1">Check me out</label>-->
+                              </div>
+                              <button type="submit" class="btn btn-primary">Save</button>
+                          </form>
+                      </div>
+                  </div>
+                    </div>
+                 
+                </div>
+            </div>  
+
+              <!--Background-->
+              <canvas class="bg-secondary my-4 w-100 chartjs-render-monitor" id="myChart" width="2038" height="860" style="display: block; height: 430px; width: 1019px; padding-left: 24px; padding-right: 25px;"></canvas>
+             
+
+        </main>
+        </div>
+
+</div>
+
+</body>
+
+</html>
+
+
+
+
+
+
+<!--Gloria testing-->
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <!-- ICONS -->
@@ -27,7 +198,6 @@
 <body>
 <div id="builder"></div>
 
-<button class="btn btn-primary" id="btn-get">Save Rule</button>
 
 </body>
 </html>
@@ -104,7 +274,8 @@ $('#builder').queryBuilder({
 $('#btn-get').on('click', function () {
 
 	// set rules
-	var result = $('#builder').queryBuilder('getRules');
+    var result = $('#builder').queryBuilder('getRules');
+       
 	if (!$.isEmptyObject(result)) {
 		rules_basic = result;
 	}
@@ -114,24 +285,11 @@ $('#btn-get').on('click', function () {
 	if (!$.isEmptyObject(result)) {
 
 		// get json
-		var rule_name = 'My Rule Name';
-		var rule_id = '0';
-		var tree = JSON.stringify(result, null, 2);
-		var to = '';
-		var cc = '';
-		var bcc = '';
-		to_return = {
-			name : rule_name,
-			id : rule_id,
-			tree : result,
-			to : to,
-			cc : cc,
-			bcc : bcc
-		}
-		
+		var to_return = JSON.stringify(result, null, 2);
+		console.log(to_return)
 		// send json file
 		$.post( "/postmethod", {
-		javascript_data : JSON.stringify(to_return, null, 4)
+		javascript_data : to_return
 		});
 	} else {
 		console.log("invalid object :");
