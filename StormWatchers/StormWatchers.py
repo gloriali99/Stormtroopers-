@@ -4,30 +4,21 @@ import sys
 
 sys.path.insert(0, '/the/folder/path/python_files')
 
-from python_files.node import *
-from python_files.pass_forms_data import *
-from python_files.bootcamp_emails import *
+# from python_files.node import *
+# from python_files.pass_forms_data import *
+# from python_files.bootcamp_emails import *
 
-o1 = OperatorNode('OR')
-o2 = OperatorNode('AND')
-o2.add_child(ConditionalNode('cpu', '>', '60'))
-o2.add_child(ConditionalNode('ram', '>=', '80'))
-o2.add_child(ConditionalNode('heat', '>=', '100'))
-
-o1.add_child(ConditionalNode('cpu', '<', '2'))
-o1.add_child(o2)
-
-print(o1)
-print('\n')
-
-send_email('stormtrooperlabs2020@gmail.com', 'tormtrooperlabs2020@gmail.com', 'reply_email', 1)
 
 app = Flask(__name__)
+
+rules_dict = {
+    'id': "0"
+}
 
 # index
 @app.route('/', methods=['GET', 'POST'])
 def render_static_index():
-    return render_template('index.html', num=10)
+    return render_template('index.html', num=10, o1=rules_dict)
 
 # another page
 @app.route('/tree')
@@ -54,6 +45,16 @@ def render_static_form():
 
     # show the form, it wasn't submitted
     return render_template('index.html')
+
+
+
+
+@app.route('/postmethod', methods = ['POST'])
+def get_post_javascript_data():
+    jsdata = request.form['javascript_data']
+    print("jsdata=", jsdata)
+    return jsdata
+
 
 if __name__ == '__main__':
     app.run()
