@@ -15,7 +15,7 @@ function loadRulesButton(){
 function plusFunction(name) {
     
     if (document.getElementById("plus").childElementCount > 0 ){
-        if (document.getElementById("plus").lastElementChild.lastElementChild.innerHTML == "NEW RULE"){
+        if (document.getElementById("plus").lastElementChild.lastElementChild.innerHTML == "New Rule"){
         return;
         }
     }
@@ -34,9 +34,9 @@ function plusFunction(name) {
         nameChange(this);
     }
     if (name === undefined) {
-        button.innerHTML = "NEW RULE";
+        button.innerHTML = "New Rule";
         let title = document.getElementById("ruleHeader")
-        title.innerHTML = "NEW RULE";
+        title.innerHTML = "New Rule";
     }
     else {
         button.innerHTML = name;
