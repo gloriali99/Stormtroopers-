@@ -20,9 +20,18 @@ def send_email(to, cc, reply_email, issue_number):
     cc_str = ",".join(cc)
     all_recipients = to + cc
 
-    sender = "stormtrooperlabs2020@gmail.com"
-    username = "AKIA3U3Z4ZXN726UUD7C"
-    password = "BEwq9ALTo30q0DEYu7q7dxa3DCv0YzPIWTs8Vp435GnT"
+    try:
+        f = open("/Users/Brendan/Desktop/credentials.json", "r")
+    except OSError:
+        print("Could not open/read credentials file: credentials.json")
+        return
+
+    with f:
+        credentials = json.load(f)
+        username = credentials["aws_access_key_id"]
+        password = credentials["aws_secret_access_key"]
+
+    sender = "stormtrooper2020labz@gmail.com"
     host = "email-smtp.ap-southeast-2.amazonaws.com"
     port = 587  # innovate wifi
 
@@ -92,7 +101,7 @@ def format_html_generic(issue_number, alert_chain):
     table = populate_table(alert_chain)
 
     try:
-        f = open("templates/email_generic.html", "r")
+        f = open("../templates/email_generic.html", "r")
     except OSError:
         print("Could not open/read email template file: email_generic.html")
         return
