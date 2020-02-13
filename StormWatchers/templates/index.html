@@ -114,11 +114,24 @@ $('#btn-get').on('click', function () {
 	if (!$.isEmptyObject(result)) {
 
 		// get json
-		var to_return = JSON.stringify(result, null, 2);
+		var rule_name = 'My Rule Name';
+		var rule_id = '0';
+		var tree = JSON.stringify(result, null, 2);
+		var to = '';
+		var cc = '';
+		var bcc = '';
+		to_return = {
+			name : rule_name,
+			id : rule_id,
+			tree : result,
+			to : to,
+			cc : cc,
+			bcc : bcc
+		}
 		
 		// send json file
 		$.post( "/postmethod", {
-		javascript_data : to_return
+		javascript_data : JSON.stringify(to_return, null, 4)
 		});
 	} else {
 		console.log("invalid object :");
