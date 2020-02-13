@@ -21,7 +21,7 @@ def send_email(to, cc, reply_email, issue_number):
     all_recipients = to + cc
 
     try:
-        f = open("/Users/Brendan/Desktop/credentials.json", "r")
+        f = open("/Users/kbgoda/Downloads/credentials.json", "r")
     except OSError:
         print("Could not open/read credentials file: credentials.json")
         return
@@ -36,13 +36,15 @@ def send_email(to, cc, reply_email, issue_number):
     port = 587  # innovate wifi
 
     message["Subject"] = "Email Alert"
-    message["From"] = "Stormtroopers <stormtrooperlabs2020@gmail.com>"
+    message["From"] = "Stormtroopers <stormtrooper2020labz@gmail.com>"
     message["To"] = to_str
     message["CC"] = cc_str
     message['Reply-to'] = "StormWatch <" + reply_email + ">"
-
+    cwd = os.getcwd()
+    # print(cwd)
+    # print(\n')
     # Access the event in the kvstore. Uses the format of the issues_detected.json schema
-    issues_kv = KVStore(collection="python_files/test_files/issues_detected", key='issue-number') # Calls to Darius' kvstore.py
+    issues_kv = KVStore(collection="test_files/issues_detected", key='issue-number') # Calls to Darius' kvstore.py
     issue = issues_kv.get_one(issue_number)
 
     # Format email content into string for MIMEText input
@@ -142,8 +144,8 @@ def populate_table(alert_chain):
     return "".join(rows)
 
 if __name__ == "__main__":
-    to = ['stormtrooperlabs2020@gmail.com']
-    cc = ['stormtrooperlabs2020@gmail.com']
-    reply_email = 'stormtrooperlabs2020@gmail.com'
+    to = ['stormtrooper2020labz@gmail.com']
+    cc = ['stormtrooper2020labz@gmail.com']
+    reply_email = 'stormtrooper2020labz@gmail.com'
     issue_number = 3
     send_email(to, cc, reply_email, issue_number)
