@@ -130,6 +130,15 @@ class StormTrooper:
         self.rules_to_be_emailed = to_return
         return to_return
 
+
+#     def write_rule_by_name(self, path, rule):
+#         rule_kv = KVStore(path, 'name')
+#         for r in rule_kv.data:
+#             print(r)
+
+
+
+# StormTrooper().write_rule_by_name("test_files/rules", "RULE2", )
     
     # def send_emails(self):
     #     rule_with_issues = self.get_rule_to_event_list()

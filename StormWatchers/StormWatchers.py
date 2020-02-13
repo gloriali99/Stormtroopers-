@@ -71,6 +71,7 @@ def get_post_javascript_data():
     jsdata = json.loads(request.form['javascript_data'])
     # trooper.convert_rule_json_js_to_python(jsdata)
     print("JSDATA IS SIS IS SIS S", jsdata)
+    
     return jsdata
 
 
