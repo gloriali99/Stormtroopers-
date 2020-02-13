@@ -16,7 +16,9 @@ class KVStore():
             json.dump(data, json_file)
 
 
-    def post_all(self, data):
+    def post_all(self, data = None):
+        if not data:
+            data = self.data
         with open(self.collection + '.json', 'w') as json_file:
             json.dump(data, json_file)
 
@@ -30,6 +32,7 @@ class KVStore():
 
     def put_one(self, id_, data):
         for index, item in enumerate(self.data):
+            print("hi")
             if id_ == self.data[index][self.key]:
                 self.data[index] = data
                 return

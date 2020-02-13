@@ -45,7 +45,7 @@
         "id": "1",
         "name": "RULE2",
         "tree": {
-            "condition": "OR",
+            "condition": "AND",
             "rules": [
                 {
                     "id": "maxAnomalySeverity",
@@ -76,6 +76,6 @@
         "to": [],
         "cc": [],
         "bcc": [],
-        "description": "description"
+        "description": "longggggGGGG description"
     }
 ]

@@ -4,6 +4,7 @@ from flask import *
 import json
 import sys
 from python_files.stormtrooper import StormTrooper
+from python_files.kvstore import KVStore
 
 
 sys.path.insert(0, '/the/folder/path/python_files')
@@ -71,12 +72,23 @@ def get_post_javascript_data():
     jsdata = json.loads(request.form['javascript_data'])
     # trooper.convert_rule_json_js_to_python(jsdata)
     print("JSDATA IS SIS IS SIS S", jsdata)
-    
+    jsdata['id'] = jsdata['name']
+    path = "python_files/test_files/rules"
+    kv = KVStore(path, 'name')
+    kv.put_one(jsdata['name'], jsdata)
+    kv.post_all()
+
+
     return jsdata
 
 @app.route('/getpythondata')
 def get_python_data():  # get 
     return json.dumps((StormTrooper().parse_path_to_list("python_files/test_files/rules", 'id')))  # TODO change rules path
+
+# @app.route('/trigger_email', methods = ['POST'])
+# def trigger_email():
+#     print("sending emails")
+
 
 if __name__ == '__main__':
     app.run()

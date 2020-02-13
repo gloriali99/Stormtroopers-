@@ -117,16 +117,16 @@ result = $('#builder').queryBuilder('getRules');
 
 // save field 
 let dict = retrieveemaildetails(); 
-result = Object.assign({},result,dict);
+dict['tree'] = result
 
   if (!$.isEmptyObject(result)) {
   console.log("home time")
       // get json
-      var to_return = JSON.stringify(result, null, 2);
+      var to_return = JSON.stringify(dict, null, 2);
       console.log(to_return)
       // send json file
       $.post( "/postmethod", {
-  javascript_data : to_return
+        javascript_data : to_return
   
       });
   } else {
