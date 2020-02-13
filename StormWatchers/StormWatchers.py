@@ -1,6 +1,10 @@
 from flask import *
 # Flask, render_template, json, current_app as app
+
+import json
 import sys
+from python_files.stormtrooper import StormTrooper
+
 
 sys.path.insert(0, '/the/folder/path/python_files')
 
@@ -51,7 +55,9 @@ def render_static_form():
 
 @app.route('/postmethod', methods = ['POST'])
 def get_post_javascript_data():
-    jsdata = request.form['javascript_data']
+    trooper = StormTrooper()
+    jsdata = json.loads(request.form['javascript_data'])
+    trooper.convert_rule_json_js_to_python(jsdata)
     print("jsdata=", jsdata)
     return jsdata
 

@@ -1,7 +1,7 @@
-from event import Event
-from kvstore import KVStore
-from node import ConditionalNode, OperatorNode
-from rule import Rule
+from python_files.event import Event
+from python_files.kvstore import KVStore
+from python_files.node import ConditionalNode, OperatorNode
+from python_files.rule import Rule
 # from bootcamp_emails import send_emails
 
 class StormTrooper:
@@ -130,3 +130,17 @@ class StormTrooper:
     #             # to_list, cc_list, return_email_str, issue_number, rule_id
     #             bootcamp_emails.send_emails(rule.to, rule.cc, return_email, issue_number, rule.rule_id)
 
+
+
+    def convert_rule_json_js_to_python(self, js_dict):
+        to_return = {}
+        to_return['id'] = js_dict['id']
+        to_return['name'] = js_dict['name']
+        to_return['tree'] = self.convert_tree_js_to_python(js_dict['tree'])
+
+        return to_return
+
+    def convert_tree_js_to_python(self, js_tree):
+        to_return = {}
+        print("JS TREE = ", js_tree)
+        return to_return
