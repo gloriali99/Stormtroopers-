@@ -11,9 +11,10 @@ function loadRulesButton(){
     $.get("/getpythondata", function(data) {
         console.log("BEFORE JSON")
         rules_data = $.parseJSON(data)
+        window.rules_data = rules_data
         console.log("AFTER JSON")
         for (let count = 0; count < rules_data.length; count++){
-            plusFunction(rules_data[count].name)
+            plusFunction(window.rules_data[count].name)
         } 
     })
     // console.log({{rules_dict}})
@@ -41,19 +42,18 @@ function plusFunction(name) {
     buttonwrapper.classList.add("nav-item");
 
     // HEREREERERERERERERERERERE
+    // GETS INFORMATION
     button.onclick = function() {
 
         $.get("/getpythondata", function(data) {
-            console.log("BEFORE JSON")
-            console.log($.parseJSON(data))
-            console.log("AFTER JSON")
+            window.rules_data = $.parseJSON(data)
         })
-
-
-        console.log(this);
+        
         nameChange(this);
 
         populate_rule(this);
+        
+        console.log(this);
     }
 
 
@@ -89,10 +89,22 @@ function nameChange(element){
    let title = document.getElementById("ruleHeader");
     console.log(element.innerHTML)
     title.innerHTML = element.innerHTML;
+    window.rule_name = element.innerHTML;
 
 }
 
 function populate_rule(element){
+    for (let i = 0; i < window.rules_data.length; i++) {
+        rule_dict = rules_data[i];
+        if (rule_dict['name'] == window.rule_name) {
+            console.log("FOUND, let's POPULATE", rules_basic);
+            rules_basic = rule_dict['tree'];
+            console.log("POPULATED WITH", rules_basic);
+            $('#builder').queryBuilder('setRules', rules_basic);
+            break;
+        }
+    }
+    console.log("HI")
     // for (let count = 0; count < rules_data.length; count++){
     //     if rules_data[count].name
     // }

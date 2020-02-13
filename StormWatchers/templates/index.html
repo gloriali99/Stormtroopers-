@@ -283,7 +283,8 @@ $('#btn-get').on('click', function () {
 		rules_basic = result;
 	}
 
-	// get and save 
+  // get and save 
+  // IMPORTANT - passes files back
 	result = $('#builder').queryBuilder('getRules');
 	if (!$.isEmptyObject(result)) {
 
