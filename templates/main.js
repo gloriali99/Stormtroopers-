@@ -101,6 +101,11 @@ function populate_rule(element){
 }
 
 function save_field(){
+    let dict = retrieveemaildetails();    
+    // dict['to']=[]
+}
+//var array = string.split(',');
+function retrieveemaildetails(){
     let dict = {};
     let array0 = document.getElementById("TO").value.split(',');
     let array1 = document.getElementById("BCC").value.split(',');
@@ -114,6 +119,5 @@ function save_field(){
     console.log(array0);
     console.log(array1);
     console.log(array2);
-    // dict['to']=[]
+    return dict;
 }
-//var array = string.split(',');
