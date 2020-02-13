@@ -70,7 +70,86 @@ function nameChange(name){
 }
 
 function populate_rule(element){
-    // for (let count = 0; count < rules_data.length; count++){
-    //     if rules_data[count].name
-    // }
+    for (let count = 0; count < rules_data.length; count++){
+        //console.log(rules_data[count]["name"]);
+        //console.log(element.innerHTML);
+        if (rules_data[count]["name"] == element.innerHTML){
+            let x = "";
+            for (let count1 = 0; count1 < rules_data[count]["to"].length; count1++){
+                x += rules_data[count]["to"][count1] + ",";
+            }
+            x = x.slice(0,-1);
+            //console.log(x);
+            //document.getElementById("exampleFormControlTextarea1").value = rules_data[count].value;
+            document.getElementById("TO").value = x;
+            let y = rules_data[count]["description"];
+            document.getElementById("exampleFormControlTextarea1").value = y;
+            let z = "";
+            for (let count1 = 0; count1 < rules_data[count]["bcc"].length; count1++){
+                z += rules_data[count]["bcc"][count1] + ",";
+            }
+            z = z.slice(0,-1);        
+            document.getElementById("BCC").value = z;
+            let t = "";
+            for (let count1 = 0; count1 < rules_data[count]["cc"].length; count1++){
+                t += rules_data[count]["cc"][count1] + ",";
+            }
+            t = t.slice(0,-1); 
+            document.getElementById("CC").value = t;
+        }
+    }
+}
+
+function save_field(){
+    // set rules
+  var result = $('#builder').queryBuilder('getRules');
+
+  if (!$.isEmptyObject(result)) {
+      rules_basic = result;
+  }
+
+  // get and save 
+result = $('#builder').queryBuilder('getRules');
+
+// save field 
+let dict = retrieveemaildetails(); 
+result = Object.assign({},result,dict);
+
+  if (!$.isEmptyObject(result)) {
+  console.log("home time")
+      // get json
+      var to_return = JSON.stringify(result, null, 2);
+      console.log(to_return)
+      // send json file
+      $.post( "/postmethod", {
+  javascript_data : to_return
+  
+      });
+  } else {
+      console.log("invalid object :");
+  }
+  console.log(result);
+}
+//var array = string.split(',');
+function retrieveemaildetails(){
+    let dict = {};
+    let array0 = document.getElementById("TO").value.split(',');
+    let array1 = document.getElementById("BCC").value.split(',');
+    let array2 = document.getElementById("CC").value.split(',');
+    let rule = document.getElementById("ruleName").value;
+    let para = document.getElementById("exampleFormControlTextarea1").value;
+    dict.to = array0;
+    dict.bcc = array1;
+    dict.cc = array2;
+    dict.description = para;
+    dict.name = rule; 
+    console.log(dict);
+    console.log(array0);
+    console.log(array1);
+    console.log(array2);
+    return dict;
+}
+
+function email_all(){
+    $.post( "/trigger_email");
 }

@@ -20,18 +20,29 @@ def send_email(to, cc, reply_email, issue_number):
     cc_str = ",".join(cc)
     all_recipients = to + cc
 
-    sender = "stormtrooperlabs2020@gmail.com"
-    username = "AKIA3U3Z4ZXN726UUD7C"
-    password = "BEwq9ALTo30q0DEYu7q7dxa3DCv0YzPIWTs8Vp435GnT"
+    try:
+        f = open("/Users/kbgoda/Downloads/credentials.json", "r")
+    except OSError:
+        print("Could not open/read credentials file: credentials.json")
+        return
+
+    with f:
+        credentials = json.load(f)
+        username = credentials["aws_access_key_id"]
+        password = credentials["aws_secret_access_key"]
+
+    sender = "stormtrooper2020labz@gmail.com"
     host = "email-smtp.ap-southeast-2.amazonaws.com"
     port = 587  # innovate wifi
 
     message["Subject"] = "Email Alert"
-    message["From"] = "Stormtroopers <stormtrooperlabs2020@gmail.com>"
+    message["From"] = "Stormtroopers <stormtrooper2020labz@gmail.com>"
     message["To"] = to_str
     message["CC"] = cc_str
     message['Reply-to'] = "StormWatch <" + reply_email + ">"
-
+    cwd = os.getcwd()
+    # print(cwd)
+    # print(\n')
     # Access the event in the kvstore. Uses the format of the issues_detected.json schema
     issues_kv = KVStore(collection="python_files/test_files/issues_detected", key='issue-number') # Calls to Darius' kvstore.py
     issue = issues_kv.get_one(issue_number)
@@ -92,7 +103,7 @@ def format_html_generic(issue_number, alert_chain):
     table = populate_table(alert_chain)
 
     try:
-        f = open("templates/email_generic.html", "r")
+        f = open("../templates/email_generic.html", "r")
     except OSError:
         print("Could not open/read email template file: email_generic.html")
         return
@@ -133,8 +144,8 @@ def populate_table(alert_chain):
     return "".join(rows)
 
 if __name__ == "__main__":
-    to = ['stormtrooperlabs2020@gmail.com']
-    cc = ['stormtrooperlabs2020@gmail.com']
-    reply_email = 'stormtrooperlabs2020@gmail.com'
+    to = ['stormtrooper2020labz@gmail.com']
+    cc = ['stormtrooper2020labz@gmail.com']
+    reply_email = 'stormtrooper2020labz@gmail.com'
     issue_number = 3
     send_email(to, cc, reply_email, issue_number)
