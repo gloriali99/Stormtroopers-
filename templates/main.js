@@ -32,6 +32,7 @@ function plusFunction(name) {
     buttonwrapper.classList.add("nav-item");
     button.onclick = function() {
         nameChange(this);
+        populate_rule(this);
     }
     if (name === undefined) {
         button.innerHTML = "New Rule";
@@ -65,4 +66,10 @@ function nameChange(name){
     console.log(name.innerHTML)
     title.innerHTML = name.innerHTML;
 
+}
+
+function populate_rule(element){
+    // for (let count = 0; count < rules_data.length; count++){
+    //     if rules_data[count].name
+    // }
 }
