@@ -278,27 +278,27 @@ $('#btn-get').on('click', function () {
 
 	// set rules
   var result = $('#builder').queryBuilder('getRules');
-       
-	if (!$.isEmptyObject(result)) {
-		rules_basic = result;
-	}
-
-  // get and save 
-  // IMPORTANT - passes files back
-	result = $('#builder').queryBuilder('getRules');
-	if (!$.isEmptyObject(result)) {
-    var to_return = {}
-    to_return['name'] = window.rule_name
-    to_return['tree'] = result  // get json
-		console.log(to_return)
-		// send json file
-		$.post( "/postmethod", {
-		javascript_data : JSON.stringify(to_return, null, 2)
-		});
-	} else {
-		console.log("invalid object :");
-	}
-	console.log(result);
+  if (!$.isEmptyObject(result)) {
+    rules_basic = result;
+  }
+  // get and save
+  result = $('#builder').queryBuilder('getRules');
+  // save field
+  let dict = retrieveemaildetails();
+  result = Object.assign({},result,dict);
+  if (!$.isEmptyObject(result)) {
+    console.log("home time")
+    // get json
+    var to_return = JSON.stringify(result, null, 2);
+    console.log(to_return)
+    // send json file
+    $.post( "/postmethod", {
+    javascript_data : to_return
+    });
+  } else {
+    console.log("invalid object :");
+  }
+  console.log(result);
 });
 
 //When rules changed :

@@ -32,7 +32,9 @@ class KVStore():
         for index, item in enumerate(self.data):
             if id_ == self.data[index][self.key]:
                 self.data[index] = data
-                break
+                return
+
+        self.data.append(data)
             
 
     def delete_one(self, id_):
