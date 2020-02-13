@@ -17,6 +17,10 @@ sys.path.insert(0, '/the/folder/path/python_files')
 
 app = Flask(__name__)
 
+my_stormtrooper = StormTrooper()
+my_stormtrooper.read_rules("python_files/test_files/rules")  # TODO CHANGE locations
+my_stormtrooper.read_events("python_files/test_files/events_short", "python_files/test_files/event_info_short")
+
 rules_dict = {
     'id': "0"
 }
@@ -24,7 +28,13 @@ rules_dict = {
 # index
 @app.route('/', methods=['GET', 'POST'])
 def render_static_index():
-    return render_template('index.html', num=10, o1=rules_dict)
+    trooper = StormTrooper()
+    rules_dict = json.dumps((StormTrooper().parse_path_to_list("python_files/test_files/rules", 'id')))
+
+    
+
+
+    return render_template('index.html', num=10, rules_dict=rules_dict)
 
 # another page
 @app.route('/tree')
@@ -62,6 +72,11 @@ def get_post_javascript_data():
     # trooper.convert_rule_json_js_to_python(jsdata)
     print("JSDATA IS SIS IS SIS S", jsdata)
     return jsdata
+
+
+@app.route('/getpythondata')
+def get_python_data():  # get 
+    return json.dumps((StormTrooper().parse_path_to_list("python_files/test_files/rules", 'id')))  # TODO change rules path
 
 
 if __name__ == '__main__':

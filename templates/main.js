@@ -32,6 +32,10 @@ function plusFunction(name) {
     button.style.textAlign = "left";
     buttonwrapper.classList.add("nav-item");
     button.onclick = function() {
+        $.get("/getpythondata", function(data) {
+            console.log("TESTING")
+            console.log($.parseJSON(data))
+        })
         nameChange(this);
         populate_rule(this);
     }

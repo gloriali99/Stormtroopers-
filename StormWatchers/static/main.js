@@ -1,15 +1,23 @@
 function loadDashboard() {
 
     
-    console.log('world')
-    console.log(rules_data)
-    loadRulesButton()
+    console.log('world2')
+    
+
+    loadRulesButton();
 }
 
 function loadRulesButton(){
-    for (let count = 0; count < rules_data.length; count++){
-        plusFunction(rules_data[count].name)
-    } 
+    $.get("/getpythondata", function(data) {
+        console.log("BEFORE JSON")
+        rules_data = $.parseJSON(data)
+        console.log("AFTER JSON")
+        for (let count = 0; count < rules_data.length; count++){
+            plusFunction(rules_data[count].name)
+        } 
+    })
+    // console.log({{rules_dict}})
+
 
 }
 
@@ -31,10 +39,25 @@ function plusFunction(name) {
     button.classList.add("btn-dark");
     button.style.textAlign = "left";
     buttonwrapper.classList.add("nav-item");
+
+    // HEREREERERERERERERERERERE
     button.onclick = function() {
+
+        $.get("/getpythondata", function(data) {
+            console.log("BEFORE JSON")
+            console.log($.parseJSON(data))
+            console.log("AFTER JSON")
+        })
+
+
+        console.log(this);
         nameChange(this);
+
         populate_rule(this);
     }
+
+
+
     if (name === undefined) {
         button.innerHTML = "New Rule";
         let title = document.getElementById("ruleHeader")
@@ -62,10 +85,10 @@ function searchFunction() {
     }
 }
 
-function nameChange(name){
+function nameChange(element){
    let title = document.getElementById("ruleHeader");
-    console.log(name.innerHTML)
-    title.innerHTML = name.innerHTML;
+    console.log(element.innerHTML)
+    title.innerHTML = element.innerHTML;
 
 }
 
