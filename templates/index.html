@@ -115,12 +115,20 @@
                     <!--THIS IS THE CODE FOR THE DESCRIPTION-->
                       <div role="tabpanel" class="tab-pane fade" id="Description"><form>
                           <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Example textarea</label>
+                            <div>
+                                <label for="exampleFormControlTextarea1">Rule Name</label>
+                                <input class="form-control" id="ruleName" aria-describedby="ruleName" placeholder="Rule Name">
+                             
+                                
+
+                            </div>
+                            <label for="exampleFormControlTextarea1">Example Text Area</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                           </div>
                         </form>
                         <button type="submit" class="btn btn-primary" onclick="save_field()">Save</button>
                       </div>
+
 
                     <!--THIS IS THE TAB FOR THE EMAIL-->
                       <div role="tabpanel" class="tab-pane fade" id="Email_R">
@@ -151,6 +159,7 @@
                               <!--<input type="checkbox" class="form-check-input" id="exampleCheck1">
                               <label class="form-check-label" for="exampleCheck1">Check me out</label>-->
                               </div>
+                            
                               <button type="submit" class="btn btn-primary" onclick="save_field()">Save</button>
                           </form>
                       </div>
@@ -284,22 +293,28 @@ $('#builder').queryBuilder({
 $('#btn-get').on('click', function () {
 
 	// set rules
-    var result = $('#builder').queryBuilder('getRules');
-       
+  var result = $('#builder').queryBuilder('getRules');
+
 	if (!$.isEmptyObject(result)) {
 		rules_basic = result;
 	}
 
 	// get and save 
-	result = $('#builder').queryBuilder('getRules');
-	if (!$.isEmptyObject(result)) {
+  result = $('#builder').queryBuilder('getRules');
+  
+  // save field 
+  let dict = retrieveemaildetails(); 
+  result = Object.assign({},result,dict);
 
+	if (!$.isEmptyObject(result)) {
+    console.log("home time")
 		// get json
 		var to_return = JSON.stringify(result, null, 2);
 		console.log(to_return)
 		// send json file
 		$.post( "/postmethod", {
-		javascript_data : to_return
+    javascript_data : to_return
+    
 		});
 	} else {
 		console.log("invalid object :");
@@ -311,7 +326,7 @@ $('#btn-get').on('click', function () {
 $('#builder').on('getRules.queryBuilder.filter', function (e) {
   //$log.info(e.value);
 });
-//# sourceURL=pen.js
+sourceURL=pen.js
     </script>
 </body>
 </html>

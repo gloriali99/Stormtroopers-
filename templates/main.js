@@ -105,11 +105,34 @@ function populate_rule(element){
 }
 
 function save_field(){
-    let dict = retrieveemaildetails();    
-    // dict['to']=[]
-    $.post( "/postmethod", {
-        javascript_data:data
-    });
+    // set rules
+  var result = $('#builder').queryBuilder('getRules');
+
+  if (!$.isEmptyObject(result)) {
+      rules_basic = result;
+  }
+
+  // get and save 
+result = $('#builder').queryBuilder('getRules');
+
+// save field 
+let dict = retrieveemaildetails(); 
+result = Object.assign({},result,dict);
+
+  if (!$.isEmptyObject(result)) {
+  console.log("home time")
+      // get json
+      var to_return = JSON.stringify(result, null, 2);
+      console.log(to_return)
+      // send json file
+      $.post( "/postmethod", {
+  javascript_data : to_return
+  
+      });
+  } else {
+      console.log("invalid object :");
+  }
+  console.log(result);
 }
 //var array = string.split(',');
 function retrieveemaildetails(){
@@ -117,11 +140,13 @@ function retrieveemaildetails(){
     let array0 = document.getElementById("TO").value.split(',');
     let array1 = document.getElementById("BCC").value.split(',');
     let array2 = document.getElementById("CC").value.split(',');
+    let rule = document.getElementById("ruleName").value;
     let para = document.getElementById("exampleFormControlTextarea1").value;
     dict.to = array0;
     dict.bcc = array1;
     dict.cc = array2;
     dict.description = para;
+    dict.name = rule; 
     console.log(dict);
     console.log(array0);
     console.log(array1);
