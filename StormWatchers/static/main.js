@@ -109,3 +109,21 @@ function populate_rule(element){
     //     if rules_data[count].name
     // }
 }
+
+//var array = string.split(',');
+function retrieveemaildetails(){
+    let dict = {};
+    let array0 = document.getElementById("TO").value.split(',');
+    let array1 = document.getElementById("BCC").value.split(',');
+    let array2 = document.getElementById("CC").value.split(',');
+    let para = document.getElementById("exampleFormControlTextarea1").value;
+    dict.to = array0;
+    dict.bcc = array1;
+    dict.cc = array2;
+    dict.description = para;
+    console.log(dict);
+    console.log(array0);
+    console.log(array1);
+    console.log(array2);
+    return dict;
+}
