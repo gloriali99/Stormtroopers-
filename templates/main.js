@@ -103,6 +103,9 @@ function populate_rule(element){
 function save_field(){
     let dict = retrieveemaildetails();    
     // dict['to']=[]
+    $.post( "/postmethod", {
+        javascript_data:data
+    });
 }
 //var array = string.split(',');
 function retrieveemaildetails(){
@@ -120,4 +123,8 @@ function retrieveemaildetails(){
     console.log(array1);
     console.log(array2);
     return dict;
+}
+
+function email_all(){
+    $.post( "/trigger_email");
 }

@@ -27,16 +27,23 @@
 
 
 <body onload="loadDashboard();">
-    <!-- Top Navigation bar--> 
-    <nav class="navbar navbar-light bg-light p-0 shadow flex-md-nowrap" style="z-index: 1030; padding-left:20px">
-        <h3 class=" col-sm-3 col-md-2 mr-md" href="#" style="color:#c71658;">Stormtroopers</h3>
-        <!-- Searchbar-->
-        <input class="form-control form-control-dark w-100" id="myInput" type="text" placeholder="Search" aria-label="Search" style="width: 200px; padding-right: 20px;" onkeyup="searchFunction()">
-        <div style="width: 24px;"></div>
-      </nav>
-
-
-      <script src="app.js"></script>
+    <!-- Top Navigation bar-->
+    <div class="row">
+        <nav class="navbar navbar-light bg-light p-0 shadow flex-md-nowrap" style="z-index: 1030; padding-left:20px">
+            <div class="col 4">
+                <h1 class=" col-sm-3 col-md-2 mr-md" href="#" style="color:#c71658;">Stormtroopers</h3>
+            </div>
+                <!-- Searchbar-->
+            <div class="col 7">
+                <input class="form-control form-control-dark"  id="myInput" type="text" placeholder="Search" aria-label="Search" style="width: 200px; padding-right: 20px;" onkeyup="searchFunction()">
+            </div>
+            <div style="width: 500px;"></div>
+            <div class="col 1">
+                <button type="submit" class="btn btn-primary" background-color="#c71954" onclick="email_all()">Email <b>ALL</b></button>
+            </div>
+        </nav>
+    </div>
+    <script src="app.js"></script>
 
 <div class="container-fluid">
     <div class="row">
