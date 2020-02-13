@@ -33,7 +33,7 @@ def send_email(to, cc, reply_email, issue_number):
     message['Reply-to'] = "StormWatch <" + reply_email + ">"
 
     # Access the event in the kvstore. Uses the format of the issues_detected.json schema
-    issues_kv = KVStore(collection="test_files/issues_detected", key='issue-number') # Calls to Darius' kvstore.py
+    issues_kv = KVStore(collection="python_files/test_files/issues_detected", key='issue-number') # Calls to Darius' kvstore.py
     issue = issues_kv.get_one(issue_number)
 
     # Format email content into string for MIMEText input
