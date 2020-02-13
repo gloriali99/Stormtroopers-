@@ -35,7 +35,8 @@ let rules_data = [
         },
         "to": ["to1@gmail.com", "to2@outlook.com"],
         "cc": [],
-        "bcc": []
+        "bcc": [],
+        "description": "Test description 0"
     },
     {
         "id" : 1,
@@ -57,7 +58,9 @@ let rules_data = [
         },
         "to": ["abc@gmail.com"],
         "cc": ["tothecc@cc.com"],
-        "bcc": []
+        "bcc": [],
+        "description": "Test description1"
+
     },
     {
         "id" : 2,
@@ -69,6 +72,8 @@ let rules_data = [
         },
         "to": ["abc@gmail.com"],
         "cc": [],
-        "bcc": ["bcc@gmail.com"]
+        "bcc": ["bcc@gmail.com"],
+        "description": "Trsd description 2"
+
     }
 ]
