@@ -13,7 +13,7 @@ sys.path.insert(0, '/the/folder/path/python_files')
 # from python_files.bootcamp_emails import *
 
 
-send_email('stormtrooperlabs2020@gmail.com', 'stormtrooperlabs2020@gmail.com', 'stormtrooperlabs2020@gmail.com', 1)
+# send_email('stormtrooperlabs2020@gmail.com', 'stormtrooperlabs2020@gmail.com', 'stormtrooperlabs2020@gmail.com', 1)
 
 app = Flask(__name__)
 
@@ -26,10 +26,10 @@ rules_dict = {
 def render_static_index():
     return render_template('index.html', num=10, o1=rules_dict)
 
-# another page
-@app.route('/tree')
-def render_static_tree():
-    return render_template('sample_tree.html', o1=o1)
+# # another page
+# @app.route('/tree')
+# def render_static_tree():
+#     return render_template('sample_tree.html', o1=o1)
 
 # email page
 # @app.route('/email')
