@@ -85,9 +85,19 @@ def get_post_javascript_data():
 def get_python_data():  # get 
     return json.dumps((StormTrooper().parse_path_to_list("python_files/test_files/rules", 'id')))  # TODO change rules path
 
-# @app.route('/trigger_email', methods = ['POST'])
-# def trigger_email():
-#     print("sending emails")
+@app.route('/trigger_email', methods = ['POST'])
+def trigger_email():
+    my_stormtrooper = StormTrooper()
+    my_stormtrooper.send_dummy_email()
+    # my_stormtrooper.read_rules("test_files/rules")
+    # my_stormtrooper.read_events("test_files/events_short", "test_files/event_info_short")
+
+    # my_stormtrooper.get_rule_to_event_list()
+    
+    # my_stormtrooper.send_emails()
+
+
+    return {}
 
 
 if __name__ == '__main__':

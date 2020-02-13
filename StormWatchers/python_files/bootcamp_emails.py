@@ -7,12 +7,12 @@ from email.mime.base import MIMEBase
 from email import encoders
 import csv
 import time
-from kvstore import KVStore
+from python_files.kvstore import KVStore
 from datetime import datetime
 import json
 import os
 
-def send_email(to, cc, reply_email, issue_number):
+def send_email(to, cc, reply_email, issue_number, rule_id):
     # cwd = os.getcwd()
     # print(cwd)
     message = MIMEMultipart("alternative")
@@ -20,16 +20,18 @@ def send_email(to, cc, reply_email, issue_number):
     cc_str = ",".join(cc)
     all_recipients = to + cc
 
-    try:
-        f = open("/Users/kbgoda/Downloads/credentials.json", "r")
-    except OSError:
-        print("Could not open/read credentials file: credentials.json")
-        return
+    # try:
+    #     f = open("C:/Users/dstia/OneDrive/Desktop/credentials.json", "r")
+    # except OSError:
+    #     print("Could not open/read credentials file: credentials.json")
+    #     return
 
-    with f:
-        credentials = json.load(f)
-        username = credentials["aws_access_key_id"]
-        password = credentials["aws_secret_access_key"]
+    # with f:
+    #     credentials = json.load(f)
+        # username = credentials["aws_access_key_id"]
+        # password = credentials["aws_secret_access_key"]
+    username = ""
+    password = ""
 
     sender = "stormtrooper2020labz@gmail.com"
     host = "email-smtp.ap-southeast-2.amazonaws.com"

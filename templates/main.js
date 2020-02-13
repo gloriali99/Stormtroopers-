@@ -155,5 +155,7 @@ function retrieveemaildetails(){
 }
 
 function email_all(){
-    $.post( "/trigger_email");
+    $.post( "/trigger_email", {
+        javascript_data:{}
+    });
 }

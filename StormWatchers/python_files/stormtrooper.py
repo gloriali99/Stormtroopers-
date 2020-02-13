@@ -2,6 +2,7 @@ from python_files.event import Event
 from python_files.kvstore import KVStore
 from python_files.node import ConditionalNode, OperatorNode
 from python_files.rule import Rule
+import python_files.bootcamp_emails as bootcamp_emails
 
 # from event import Event
 # from kvstore import KVStore
@@ -130,6 +131,9 @@ class StormTrooper:
         self.rules_to_be_emailed = to_return
         return to_return
 
+
+    def send_dummy_email(self):
+        bootcamp_emails.send_email(["stormtrooper2020labz@gmail.com"], [], "stormtrooper2020labz@gmail.com", 1, 1)
 
 #     def write_rule_by_name(self, path, rule):
 #         rule_kv = KVStore(path, 'name')
