@@ -1,5 +1,6 @@
 function loadDashboard() {
 
+    
     console.log('world')
     console.log(rules_data)
     loadRulesButton()
