@@ -1,7 +1,13 @@
-from python_files.event import Event
-from python_files.kvstore import KVStore
-from python_files.node import ConditionalNode, OperatorNode
-from python_files.rule import Rule
+# from python_files.event import Event
+# from python_files.kvstore import KVStore
+# from python_files.node import ConditionalNode, OperatorNode
+# from python_files.rule import Rule
+
+from event import Event
+from kvstore import KVStore
+from node import ConditionalNode, OperatorNode
+from rule import Rule
+
 # from bootcamp_emails import send_emails
 
 class StormTrooper:
@@ -69,32 +75,39 @@ class StormTrooper:
         return rules
 
     def convert_to_tree(self, tree_as_dict):  # TODO:
-        OPERATOR_NODE_ITEMS = 1
-        CONDITIONAL_NODE_ITEMS = 3
+        OPERATOR_NODE_ITEMS = 2
+        CONDITIONAL_NODE_ITEMS = 6
+
+        operator_conversion = {
+            'equal':'==',
+            'not equal':'!=',
+            'less':'<',
+            'less or equal':'<=',
+            'greater':'>',
+            'greater or equal':'>='
+        }
+
         # length of the dicts can be one or three
         # case length == 1, we have "OR" or "AND" keys - ie an OperatorNode
         # case length == 3, we have a ConditionalNode (3 items are: 'rule', 'comparator', 'value')
 
         if len(tree_as_dict) == OPERATOR_NODE_ITEMS:
-            for key in tree_as_dict:
-                node = OperatorNode(str(key))
-                children = []  # list of Nodes (either OperatorNode or ConditionalNode)
-                children_raw_list = tree_as_dict[key]
+            op = tree_as_dict['condition']
+            node = OperatorNode(op)
+            children = []
+            children_raw_list = tree_as_dict['rules']
+            for c in children_raw_list:
+                child_node = self.convert_to_tree(c)
+                children.append(child_node)
+            node.children = children
+            return node
 
-                # recursively apply to all children
-                for c in children_raw_list:
-                    child_node = self.convert_to_tree(c)
-                    children.append(child_node)
-                node.children = children
-                return node
 
-        # if len(dict) == 3, we have a ConditionalNode
-        # convert it to a ConditionalNode and return that
         elif len(tree_as_dict) == CONDITIONAL_NODE_ITEMS:
-            rule = tree_as_dict['rule']
-            comparator = tree_as_dict['comparator']
+            attribute = tree_as_dict['field']
+            comparator = operator_conversion[tree_as_dict['operator']]
             value = tree_as_dict['value']
-            return ConditionalNode(rule, comparator, value)
+            return ConditionalNode(attribute, comparator, value)
 
         return None
 
@@ -143,4 +156,5 @@ class StormTrooper:
     def convert_tree_js_to_python(self, js_tree):
         to_return = {}
         print("JS TREE = ", js_tree)
+        # if len(js_tree) == 
         return to_return
