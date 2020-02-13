@@ -26,9 +26,9 @@
 </head>
 <body>
 <div id="builder"></div>
-<button class="btn btn-success" id="btn-set">Set Rules</button>
-<button class="btn btn-primary" id="btn-get">Get Rules</button>
-<button class="btn btn-warning" id="btn-reset">Reset</button>
+
+<button class="btn btn-primary" id="btn-get">Save Rule</button>
+
 </body>
 </html>
 <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-db44b196776521ea816683afab021f757616c80860d31da6232dedb8d7cc4862.js"></script>
@@ -39,98 +39,106 @@
 var rules_basic = {
   condition: 'AND',
   rules: [{
-    id: 'price',
-    operator: 'less',
-    value: 10.25 },
+    id: 'maxAnomalySeverity',
+    operator: 'greater',
+    value: 0.9 },
   {
     condition: 'OR',
     rules: [{
-      id: 'category',
+      id: 'avgAnomalySeverity',
       operator: 'equal',
-      value: 2 },
+      value: 0.8 },
     {
-      id: 'category',
+      id: 'cluster_id',
       operator: 'equal',
       value: 1 }] }] };
 $('#builder').queryBuilder({
-  plugins: ['bt-tooltip-errors'],
-  filters: [{
-    id: 'name',
-    label: 'Name',
-    type: 'string' },
-  {
-    id: 'category',
-    label: 'Category',
-    type: 'integer',
-    input: 'select',
-    values: {
-      1: 'Books',
-      2: 'Movies',
-      3: 'Music',
-      4: 'Tools',
-      5: 'Goodies',
-      6: 'Clothes' },
-    operators: ['equal', 'not_equal', 'less', 'not_in', 'is_null', 'is_not_null'] },
-  {
-    id: 'in_stock',
-    label: 'In stock',
-    type: 'integer',
-    input: 'radio',
-    values: {
-      1: 'Yes',
-      0: 'No' },
-    operators: ['equal'] },
-  {
-    id: 'price',
-    label: 'Price',
-    type: 'double',
-    validation: {
-      min: 0,
-      step: 0.01 } },
-  {
-    id: 'id',
-    label: 'Identifier',
-    type: 'string',
-    placeholder: '____-____-____',
-    operators: ['equal', 'not_equal'],
-    validation: {
-      format: /^.{4}-.{4}-.{4}$/ } }],
-  rules: rules_basic });
+	plugins: ['bt-tooltip-errors'],
+	filters: [
+		{
+		id: 'maxAnomalySeverity',
+		label: 'maxAnomalySeverity',
+		type: 'string',
+		// input: 'select',
+		operators: ['equal', 'not_equal', 'less', 'less_or_equal', 'greater', 'greater_or_equal'] 
+		},
+		{
+		id: 'avgAnomalySeverity',
+		label: 'avgAnomalySeverity',
+		type: 'string',
+		// input: 'select',
+		operators: ['equal', 'not_equal', 'less', 'less_or_equal', 'greater', 'greater_or_equal'] 
+		},
+		{
+		id: 'severityChainLength',
+		label: 'severityChainLength',
+		type: 'string',
+		// input: 'select',
+		operators: ['equal', 'not_equal', 'less', 'less_or_equal', 'greater', 'greater_or_equal'] 
+		},
+		{
+		id: 'cluster_id',
+		label: 'cluster_id',
+		type: 'string',
+		// input: 'select',
+		operators: ['equal', 'not_equal', 'less', 'less_or_equal', 'greater', 'greater_or_equal'] 
+		},	
+		{
+		id: 'highestTier',
+		label: 'highestTier',
+		type: 'string',
+		// input: 'select',
+		operators: ['equal', 'not_equal', 'less', 'less_or_equal', 'greater', 'greater_or_equal'] 
+		},	
+		{
+		id: 'duration',
+		label: 'duration',
+		type: 'string',
+		// input: 'select',
+		operators: ['equal', 'not_equal', 'less', 'less_or_equal', 'greater', 'greater_or_equal'] 
+		}],	  
+		rules: rules_basic });
 /****************************************************************
                                                 Triggers and Changers QueryBuilder
                          *****************************************************************/
 $('#btn-get').on('click', function () {
-  var result = $('#builder').queryBuilder('getRules');
-  if (!$.isEmptyObject(result)) {
-    rules_basic = result;
-  }
 
+	// set rules
+	var result = $('#builder').queryBuilder('getRules');
+	if (!$.isEmptyObject(result)) {
+		rules_basic = result;
+	}
 
+	// get and save 
+	result = $('#builder').queryBuilder('getRules');
+	if (!$.isEmptyObject(result)) {
 
-  result = $('#builder').queryBuilder('getRules');
-  if (!$.isEmptyObject(result)) {
-	var to_return = JSON.stringify(result, null, 2);
-	$.post( "/postmethod", {
-      javascript_data : to_return
-    });
-	
-  } else
-  {
-    console.log("invalid object :");
-  }
-  console.log(result);
+		// get json
+		var rule_name = 'My Rule Name';
+		var rule_id = '0';
+		var tree = JSON.stringify(result, null, 2);
+		var to = '';
+		var cc = '';
+		var bcc = '';
+		to_return = {
+			name : rule_name,
+			id : rule_id,
+			tree : result,
+			to : to,
+			cc : cc,
+			bcc : bcc
+		}
+		
+		// send json file
+		$.post( "/postmethod", {
+		javascript_data : JSON.stringify(to_return, null, 4)
+		});
+	} else {
+		console.log("invalid object :");
+	}
+	console.log(result);
 });
-$('#btn-reset').on('click', function () {
 
-//   $('#builder').queryBuilder('reset');
-});
-$('#btn-set').on('click', function () {
-  //$('#builder').queryBuilder('setRules', rules_basic);
-  var result = $('#builder').queryBuilder('getRules');
-  if (!$.isEmptyObject(result)) {
-    rules_basic = result;
-  }
-});
 //When rules changed :
 $('#builder').on('getRules.queryBuilder.filter', function (e) {
   //$log.info(e.value);
