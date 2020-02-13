@@ -1,12 +1,12 @@
-# from python_files.event import Event
-# from python_files.kvstore import KVStore
-# from python_files.node import ConditionalNode, OperatorNode
-# from python_files.rule import Rule
+from python_files.event import Event
+from python_files.kvstore import KVStore
+from python_files.node import ConditionalNode, OperatorNode
+from python_files.rule import Rule
 
-from event import Event
-from kvstore import KVStore
-from node import ConditionalNode, OperatorNode
-from rule import Rule
+# from event import Event
+# from kvstore import KVStore
+# from node import ConditionalNode, OperatorNode
+# from rule import Rule
 
 # from bootcamp_emails import send_emails
 
