@@ -8,6 +8,11 @@
 <script type="text/javascript" src="main.js"> </script>
 <!--attatch jquery file-->
 
+<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-db44b196776521ea816683afab021f757616c80860d31da6232dedb8d7cc4862.js"></script>
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script src='https://cdn.jsdelivr.net/jquery.query-builder/2.3.3/js/query-builder.standalone.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-db44b196776521ea816683afab021f757616c80860d31da6232dedb8d7cc4862.js"></script>
 <script src='https://cdn.jsdelivr.net/jquery.query-builder/2.3.3/js/query-builder.standalone.min.js'></script>
@@ -128,7 +133,7 @@
 
                 
                   </div>
-                  <button type="submit" class="btn btn-primary" background-color="#c71954">Save</button> 
+                  <button type="submit" class="btn btn-primary" background-color="#c71954" onclick="save_field()">Save</button> 
               </div></div>
                       <div role="tabpanel" class="tab-pane fade" id="Description"><form>
                           <div class="form-group">
@@ -136,14 +141,14 @@
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                           </div>
                         </form>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary" onclick="save_field()">Save</button>
                       </div>
                       <div role="tabpanel" class="tab-pane fade" id="Email_R">
                           <form>
                               <div class="form-group">
                               <label for="exampleInputEmail1">TO:</label>
                               <input type="email" class="form-control" id="TO" aria-describedby="emailHelp" placeholder="Enter email">
-                              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                              <small id="emailHelp" class="form-text text-muted">To enter multiple email recipients separate using a comma.</small>
                               </div>
                   
                               <div class="form-group">
@@ -166,7 +171,7 @@
                               <!--<input type="checkbox" class="form-check-input" id="exampleCheck1">
                               <label class="form-check-label" for="exampleCheck1">Check me out</label>-->
                               </div>
-                              <button type="submit" class="btn btn-primary">Save</button>
+                              <button type="submit" class="btn btn-primary" onclick="save_field()">Save</button>
                           </form>
                       </div>
                   </div>
@@ -196,4 +201,3 @@
 </body>
 
 </html>
-
