@@ -91,46 +91,20 @@
                       <!--Inner box of the form-->
                       <div class="card">
                           <div class="card-body">
-                              
-                              <label for="exampleFormControlSelect1">Events Attribute</label>
-
-                                  <div class="form-group col-md-6"> 
-                                   
-                                      <div>  
-                                        <!--select fields -->
-                                          <div class="row">
-                                              <div class="col-6">
-                                              <select class="form-inline form-control-lg" id="exampleFormControlSelect1"  style="width:auto">
-                                              <option>Attribute 1 </option>
-                                              <option>Attribute 2</option>
-                                              <option>Attribute 3</option>
-                                              <option>Attribute 4</option>
-                                              <option>Attribute 5</option>
-                                              </select>
-                                           </div>
-
-                                    
-                                           <div class="row">
-                                              <div class="col-6">
-                                              <select class="form-inline form-control-lg" id="exampleFormControlSelect1"  style="width:auto ">
-                                                  <option>Attribute 1 </option>
-                                                  <option>Attribute 2</option>
-                                                  <option>Attribute 3</option>
-                                                  <option>Attribute 4</option>
-                                                  <option>Attribute 5</option>
-                                              </select>
-                                         
-
-                                      </div>
-                                  </div>    
-
+                            <div class="form-group "> 
+                            
+                                <div>  
+                                <!--select fields -->
+                                <div class="row">
+                                        <div id="builder">
+                                </div>  
                           </div>
                       </div>
                   </div>
 
                 
                   </div>
-                  <button type="submit" class="btn btn-primary" background-color="#c71954">Save</button> 
+                
               </div></div>
                       <div role="tabpanel" class="tab-pane fade" id="Description"><form>
                           <div class="form-group">
@@ -173,10 +147,8 @@
                       </div>
                   </div>
                     </div>
-                    <div class="card-body bg-light" style="padding-left:10px" id="builder">
-                        <button class="btn btn-success" id="btn-set">Set Rules</button>
+                    <div class="card-body bg-light" style="padding-left:10px">
                         <button class="btn btn-primary" id="btn-get">Get Rules</button>
-                        <button class="btn btn-warning" id="btn-reset">Reset</button>                 
                                     <div class="form-group"> 
                                         <div>  
 
@@ -197,4 +169,146 @@
 
 </body>
 
+</html>
+
+
+
+
+
+
+<!--Gloria testing-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- ICONS -->
+<!-- <link rel="apple-touch-icon" type="image/png" href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" /> -->
+<!-- <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" /> -->
+<!-- TITLE -->
+<title>StormTroopers</title>
+<!-- STYLES -->
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/jquery.query-builder/2.3.3/css/query-builder.default.min.css'>
+<script>
+  window.console = window.console || function(t) {};
+</script>
+<script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+</head>
+<body translate="no">
+<html>
+<head>
+<title></title>
+</head>
+<body>
+<div id="builder"></div>
+
+
+</body>
+</html>
+<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-db44b196776521ea816683afab021f757616c80860d31da6232dedb8d7cc4862.js"></script>
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script src='https://cdn.jsdelivr.net/jquery.query-builder/2.3.3/js/query-builder.standalone.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+<script id="rendered-js">
+var rules_basic = {
+  condition: 'AND',
+  rules: [{
+    id: 'maxAnomalySeverity',
+    operator: 'greater',
+    value: 0.9 },
+  {
+    condition: 'OR',
+    rules: [{
+      id: 'avgAnomalySeverity',
+      operator: 'equal',
+      value: 0.8 },
+    {
+      id: 'cluster_id',
+      operator: 'equal',
+      value: 1 }] }] };
+$('#builder').queryBuilder({
+	plugins: ['bt-tooltip-errors'],
+	filters: [
+		{
+		id: 'maxAnomalySeverity',
+		label: 'maxAnomalySeverity',
+		type: 'string',
+		// input: 'select',
+		operators: ['equal', 'not_equal', 'less', 'less_or_equal', 'greater', 'greater_or_equal'] 
+		},
+		{
+		id: 'avgAnomalySeverity',
+		label: 'avgAnomalySeverity',
+		type: 'string',
+		// input: 'select',
+		operators: ['equal', 'not_equal', 'less', 'less_or_equal', 'greater', 'greater_or_equal'] 
+		},
+		{
+		id: 'severityChainLength',
+		label: 'severityChainLength',
+		type: 'string',
+		// input: 'select',
+		operators: ['equal', 'not_equal', 'less', 'less_or_equal', 'greater', 'greater_or_equal'] 
+		},
+		{
+		id: 'cluster_id',
+		label: 'cluster_id',
+		type: 'string',
+		// input: 'select',
+		operators: ['equal', 'not_equal', 'less', 'less_or_equal', 'greater', 'greater_or_equal'] 
+		},	
+		{
+		id: 'highestTier',
+		label: 'highestTier',
+		type: 'string',
+		// input: 'select',
+		operators: ['equal', 'not_equal', 'less', 'less_or_equal', 'greater', 'greater_or_equal'] 
+		},	
+		{
+		id: 'duration',
+		label: 'duration',
+		type: 'string',
+		// input: 'select',
+		operators: ['equal', 'not_equal', 'less', 'less_or_equal', 'greater', 'greater_or_equal'] 
+		}],	  
+		rules: rules_basic });
+/****************************************************************
+                                                Triggers and Changers QueryBuilder
+                         *****************************************************************/
+$('#btn-get').on('click', function () {
+
+	// set rules
+	var result = $('#builder').queryBuilder('getRules');
+	if (!$.isEmptyObject(result)) {
+		rules_basic = result;
+	}
+
+	// get and save 
+	result = $('#builder').queryBuilder('getRules');
+	if (!$.isEmptyObject(result)) {
+
+		// get json
+		var to_return = JSON.stringify(result, null, 2);
+		
+		// send json file
+		$.post( "/postmethod", {
+		javascript_data : to_return
+		});
+	} else {
+		console.log("invalid object :");
+	}
+	console.log(result);
+});
+
+//When rules changed :
+$('#builder').on('getRules.queryBuilder.filter', function (e) {
+  //$log.info(e.value);
+});
+//# sourceURL=pen.js
+    </script>
+</body>
 </html>
