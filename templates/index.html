@@ -86,26 +86,23 @@
                           <a class="nav-link" href="#Email_R" role="tab" data-toggle="tab">Email Recipient</a>
                         </li>
                     </ul>
+
+                    <!--THIS IS THE CODE FOR THE CONDITIONS-->
                     <div class="tab-content">
                       <div role="tabpanel" class="tab-pane in active" id="Conditions"><div class="card-body bg-light" style="padding-left:10px"></div>
-                      <!--Inner box of the form-->
-                      <div class="card">
-                          <div class="card-body">
-                            <div class="form-group "> 
-                            
-                                <div>  
-                                <!--select fields -->
-                                <div class="row">
-                                        <div id="builder">
-                                </div>  
-                          </div>
-                      </div>
-                  </div>
+                        <form>
+                            <div class="card">  
+                                <div class="form-group id=" > 
+                                    <div id="builder" style="display:block " ></div>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" id="btn-get">Save</button>
+                        </form>
+                    </div>
 
-                
-                  </div>
-                
-              </div></div>
+
+
+                    <!--THIS IS THE CODE FOR THE DESCRIPTION-->
                       <div role="tabpanel" class="tab-pane fade" id="Description"><form>
                           <div class="form-group">
                             <label for="exampleFormControlTextarea1">Example textarea</label>
@@ -114,6 +111,8 @@
                         </form>
                         <button type="submit" class="btn btn-primary">Save</button>
                       </div>
+
+                    <!--THIS IS THE TAB FOR THE EMAIL-->
                       <div role="tabpanel" class="tab-pane fade" id="Email_R">
                           <form>
                               <div class="form-group">
@@ -147,14 +146,7 @@
                       </div>
                   </div>
                     </div>
-                    <div class="card-body bg-light" style="padding-left:10px">
-                        <button class="btn btn-primary" id="btn-get">Get Rules</button>
-                                    <div class="form-group"> 
-                                        <div>  
-
-                                            
-                                     </div>
-                            </div>
+                 
                 </div>
             </div>  
 
@@ -282,7 +274,8 @@ $('#builder').queryBuilder({
 $('#btn-get').on('click', function () {
 
 	// set rules
-	var result = $('#builder').queryBuilder('getRules');
+    var result = $('#builder').queryBuilder('getRules');
+       
 	if (!$.isEmptyObject(result)) {
 		rules_basic = result;
 	}
@@ -293,7 +286,7 @@ $('#btn-get').on('click', function () {
 
 		// get json
 		var to_return = JSON.stringify(result, null, 2);
-		
+		console.log(to_return)
 		// send json file
 		$.post( "/postmethod", {
 		javascript_data : to_return
