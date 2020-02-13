@@ -21,7 +21,7 @@ def send_email(to, cc, reply_email, issue_number):
     all_recipients = to + cc
 
     try:
-        f = open("C:\\Users\\anosh\.aws\credentials.json", "r")
+        f = open("/Users/Brendan/Desktop/credentials.json", "r")
     except OSError:
         print("Could not open/read credentials file: credentials.json")
         return
@@ -101,7 +101,7 @@ def format_html_generic(issue_number, alert_chain):
     table = populate_table(alert_chain)
 
     try:
-        f = open("templates/email_generic.html", "r")
+        f = open("../templates/email_generic.html", "r")
     except OSError:
         print("Could not open/read email template file: email_generic.html")
         return
@@ -123,12 +123,12 @@ def populate_table(alert_chain):
     # decimal places
     for anomaly in alert_chain:
         raw_time = float(anomaly["_time"])
-        # day = datetime.fromtimestamp(raw_time).strftime("%d")
-        # month = datetime.fromtimestamp(raw_time).strftime("%b")
-        # year = datetime.fromtimestamp(raw_time).strftime("%Y")
-        # _time = datetime.fromtimestamp(raw_time).strftime("%X")
+        day = datetime.fromtimestamp(raw_time).strftime("%d")
+        month = datetime.fromtimestamp(raw_time).strftime("%b")
+        year = datetime.fromtimestamp(raw_time).strftime("%Y")
+        _time = datetime.fromtimestamp(raw_time).strftime("%X")
 
-        # date = " ".join([day,month,year])
+        date = " ".join([day,month,year])
 
         row = """<tr class="table">
                     <td class="table">{date}</td>
@@ -137,7 +137,7 @@ def populate_table(alert_chain):
                     <td class="table">{value}</td>
                     <td class="table">{expected_value}</td>
                     <td class="table">{severity}</td>
-                </tr>""".format(date = "date", _time="_time", metric=anomaly["metric"], value=round(anomaly["value"], 4), expected_value=round(anomaly["expected_value"], 4), severity=round(anomaly["severity"], 4))
+                </tr>""".format(date = date, _time=_time, metric=anomaly["metric"], value=round(anomaly["value"], 4), expected_value=round(anomaly["expected_value"], 4), severity=round(anomaly["severity"], 4))
         rows.append(row)
 
     return "".join(rows)
