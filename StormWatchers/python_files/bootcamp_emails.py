@@ -37,7 +37,6 @@ def send_email(to, cc, reply_email, issue_number, rule_id = 0):
     host = "email-smtp.ap-southeast-2.amazonaws.com"
     port = 587  # innovate wifi
 
-    message = MIMEMultipart()
     message["Subject"] = "Email Alert"
     message["From"] = "Stormtroopers <stormtrooper2020labz@gmail.com>"
     message["To"] = to_str
@@ -47,7 +46,7 @@ def send_email(to, cc, reply_email, issue_number, rule_id = 0):
     # print(cwd)
     # print(\n')
     # Access the event in the kvstore. Uses the format of the issues_detected.json schema
-    issues_kv = KVStore(collection="python_files/test_files/events", key='issue-number') # Calls to Darius' kvstore.py
+    issues_kv = KVStore(collection="test_files/events", key='issue-number') # Calls to Darius' kvstore.py
     issue = issues_kv.get_one(issue_number)
 
     # Format email content into string for MIMEText input

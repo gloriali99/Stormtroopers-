@@ -1,3 +1,5 @@
+import subprocess
+
 from python_files.event import Event
 from python_files.kvstore import KVStore
 from python_files.node import ConditionalNode, OperatorNode
@@ -32,12 +34,12 @@ class StormTrooper:
 
 
         self.rules = self.convert_list_to_rules(rules_raw)
-    
+
     def read_events(self, events_path, event_info_path):
         events_raw = self.parse_path_to_list(events_path, 'issue_number')
         event_info_raw = self.parse_path_to_list(event_info_path, '_key')
         self.events = self.generate_event_list(events_raw, event_info_raw)
-    
+
     def generate_event_list(self, events_raw, event_info_raw):
         event_list = {}
         for i, event_info_dict in enumerate(event_info_raw):
@@ -154,7 +156,7 @@ class StormTrooper:
 
 
 # StormTrooper().write_rule_by_name("test_files/rules", "RULE2", )
-    
+
     def send_emails(self):
         rule_with_issues = self.get_rule_to_event_list()
         return_email = 'stormtrooper2020labz@gmail.com'
@@ -163,10 +165,12 @@ class StormTrooper:
             issues_list = rule_with_issues[r]
             for issue_number in issues_list:
                 print("sending email")
+                # subprocess.run(["code", "."])
+                subprocess.run(["cd", "python_files", "&&", "python3", "bootcamp_emails.py"])
                 # send emails with bootcamp_emails in format:
                 # to_list, cc_list, return_email_str, issue_number, rule_id
                 # BCE = BootcampEmails()
-                
+
                 # BCE.send_email(rule.to, rule.cc, return_email, int(issue_number), rule.rule_id)
 
 
@@ -182,5 +186,5 @@ class StormTrooper:
     # def convert_tree_js_to_python(self, js_tree):
     #     to_return = {}
     #     print("JS TREE = ", js_tree)
-    #     # if len(js_tree) == 
+    #     # if len(js_tree) ==
     #     return to_return
