@@ -68,11 +68,15 @@ class Rule:
         conditions_index = {}
         to_explore = []
         to_explore.append(self.root)
+        print("root=", self.root)
         while to_explore:
+            print("test", to_explore)
             curr_node = to_explore.pop()
             conditions_index[curr_node._id] = curr_node
             if curr_node._type == 'OperatorNode':
+                print("ete")
                 for child_node in curr_node.children:
+                    print("child=", child_node)
                     to_explore.append(child_node)
         self.nodes_index = conditions_index
         

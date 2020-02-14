@@ -2,7 +2,7 @@ from python_files.event import Event
 from python_files.kvstore import KVStore
 from python_files.node import ConditionalNode, OperatorNode
 from python_files.rule import Rule
-import python_files.bootcamp_emails as bootcamp_emails
+# from python_files.bootcamp_emails import BootcampEmails
 
 # from event import Event
 # from kvstore import KVStore
@@ -27,6 +27,10 @@ class StormTrooper:
 
     def read_rules(self, file_path):
         rules_raw = self.parse_path_to_list(file_path, 'id')
+
+        print("READING...")
+
+
         self.rules = self.convert_list_to_rules(rules_raw)
     
     def read_events(self, events_path, event_info_path):
@@ -53,17 +57,20 @@ class StormTrooper:
 
     # turn JSON dict format into a python dict of rule objects
     def convert_list_to_rules(self, parsed_list):
+        print("PARSED LIST = ", parsed_list)
         rules = {}
-        for parsed_dict in parsed_list:
+        for index, parsed_dict in enumerate(parsed_list):
             my_rule = Rule()
-            my_rule.rule_id = parsed_dict['id']
+            my_rule.rule_id = parsed_dict['name']
             my_rule.name = parsed_dict['name']
 
             # add a root node connected to the tree
             root = OperatorNode('ROOT')
             root._id = '0'
+            print("parsed_dict is", parsed_dict)
             root.add_child(self.convert_to_tree(parsed_dict['tree']))
             my_rule.root = root
+            # print("root is", root, "parsed_dict is \n\n\n", parsed_dict)
 
 
             my_rule.to = parsed_dict['to']
@@ -76,6 +83,7 @@ class StormTrooper:
         return rules
 
     def convert_to_tree(self, tree_as_dict):  # TODO:
+        # print("tree as a dict passed in=", tree_as_dict)
         OPERATOR_NODE_ITEMS = 2
         CONDITIONAL_NODE_ITEMS = 6
 
@@ -110,6 +118,9 @@ class StormTrooper:
             value = tree_as_dict['value']
             return ConditionalNode(attribute, comparator, value)
 
+
+
+        print("TREE=", tree_as_dict)
         return None
 
 
@@ -144,17 +155,19 @@ class StormTrooper:
 
 # StormTrooper().write_rule_by_name("test_files/rules", "RULE2", )
     
-    # def send_emails(self):
-    #     rule_with_issues = self.get_rule_to_event_list()
-    #     return_email = 'return@return.accenture_bootcamp.com'
-    #     for r in rule_with_issues:
-    #         rule = self.rules[r]
-    #         issues_list = rule_with_issues[r]
-    #         for issue_number in issues_list:
-
-    #             # send emails with bootcamp_emails in format:
-    #             # to_list, cc_list, return_email_str, issue_number, rule_id
-    #             bootcamp_emails.send_emails(rule.to, rule.cc, return_email, issue_number, rule.rule_id)
+    def send_emails(self):
+        rule_with_issues = self.get_rule_to_event_list()
+        return_email = 'stormtrooper2020labz@gmail.com'
+        for r in rule_with_issues:
+            rule = self.rules[r]
+            issues_list = rule_with_issues[r]
+            for issue_number in issues_list:
+                print("sending email")
+                # send emails with bootcamp_emails in format:
+                # to_list, cc_list, return_email_str, issue_number, rule_id
+                # BCE = BootcampEmails()
+                
+                # BCE.send_email(rule.to, rule.cc, return_email, int(issue_number), rule.rule_id)
 
 
 

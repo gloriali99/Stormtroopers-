@@ -4,8 +4,9 @@ print("Starting application...")
 
 print("Importing JSONs...\n")
 my_stormtrooper = StormTrooper()
-my_stormtrooper.read_rules("test_files/rules")
-my_stormtrooper.read_events("test_files/events_short", "test_files/event_info_short")
+my_stormtrooper.read_rules("python_files/test_files/rules")
+print("events")
+my_stormtrooper.read_events("python_files/test_files/events_short", "python_files/test_files/event_info_short")
 
 print("Rules are:")
 for rid in my_stormtrooper.rules:
@@ -19,6 +20,7 @@ for eid in my_stormtrooper.events:
     print("Event {}:".format(str(e.key)), e.attributes)
 
 print("\n")
+print("EMAILS")
 rule_with_issues = my_stormtrooper.get_rule_to_event_list()
 for r in rule_with_issues:
     rule = my_stormtrooper.rules[r]

@@ -7,12 +7,12 @@ from email.mime.base import MIMEBase
 from email import encoders
 import csv
 import time
-from python_files.kvstore import KVStore
+from kvstore import KVStore
 from datetime import datetime
 import json
 import os
 
-def send_email(to, cc, reply_email, issue_number, rule_id):
+def send_email(to, cc, reply_email, issue_number, rule_id = 0):
     # cwd = os.getcwd()
     # print(cwd)
     message = MIMEMultipart("alternative")
@@ -37,6 +37,7 @@ def send_email(to, cc, reply_email, issue_number, rule_id):
     host = "email-smtp.ap-southeast-2.amazonaws.com"
     port = 587  # innovate wifi
 
+    message = MIMEMultipart()
     message["Subject"] = "Email Alert"
     message["From"] = "Stormtroopers <stormtrooper2020labz@gmail.com>"
     message["To"] = to_str
@@ -46,7 +47,7 @@ def send_email(to, cc, reply_email, issue_number, rule_id):
     # print(cwd)
     # print(\n')
     # Access the event in the kvstore. Uses the format of the issues_detected.json schema
-    issues_kv = KVStore(collection="python_files/test_files/issues_detected", key='issue-number') # Calls to Darius' kvstore.py
+    issues_kv = KVStore(collection="python_files/test_files/events", key='issue-number') # Calls to Darius' kvstore.py
     issue = issues_kv.get_one(issue_number)
 
     # Format email content into string for MIMEText input
